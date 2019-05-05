@@ -1,0 +1,48 @@
+{% extends 'plantilla.html' %}
+{% block title%} EDUCACION {%endblock %}
+
+{%  block content %}
+ <div class="panel panel-headline">
+      <div class="panel-heading">
+        <h2 class="panel-title"><b>Configuración</b></h2>
+        <p class="panel-subtitle"><b>Panel Administrativo - Configuración</b></p>
+      </div>
+
+</div>
+
+<div class="panel">
+    <div class="panel-body">
+          <div class="table-responsive">
+
+
+          <div class="row">
+
+                <div class="col-md-6">
+                <a href="configuraInstitucion"><i class="fa fa-university"></i>Institucion Educativa</a>
+                <hr />
+                </div>
+
+                <div class="col-md-6">
+                 <a href="configuraSede"><i class="fa fa-object-group"></i>Sedes</a>
+                 <hr />
+                </div>
+
+                <div class="col-md-6">
+                 <a href="configuraGrado"> <i class="fa fa-graduation-cap"></i>Grados</a>
+                 <hr />
+                </div>
+
+                <div class="col-md-6">
+                 <a href="configuraGrupo"><i  class="fa fa-users"></i> Grupos </a>
+                 <hr />
+                </div>
+
+          </div>
+
+          </div>
+    </div>
+</div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,119 @@
+{% extends 'plantilla-index.html' %}
+{% load staticfiles %}
+
+{%  block content %}
+
+<br><br><br>
+
+    <div class="container">
+    	<div class="row">
+
+    		  <div class="col-md-12">
+    		  	<div class="row">
+    		  		<div class="content-box-large">
+    		  				<div class="panel-heading">
+                  <!--  <form class="" action="{% url 'fechaEntrevista' %}" method="POST">-->
+                    <form class="" action="{% url 'horaEntrevista' %}" method="POST">
+                        {% csrf_token %}
+                    <div class="col-sm-1">
+
+                    </div>
+                    <div class="col-sm-11 form-group">
+                      {% if documento %}
+                            <!--<input type="hidden" name="doc" id="documento" value="{{ documento }}">
+                              <label class="control-label" for="textinput">Programe dia y hora para su entrevista</label><br>
+                              <input class="form-control" type="date" onchange="this.form.submit()" id="dia" name="dia" step="1" min="2018-09-20" max="2018-09-22" value="{{ fecha }}">
+                            -->
+
+                              <input type="hidden" name="doc" id="documento" value="{{ documento }}">
+                              <input type="hidden" name="dia" id="dia" value="2018-09-20">
+                              <input type="hidden" name="diaMes" id="diaMes" value="2018-09-20">
+                              <input type="hidden" name="docum" id="docum" value="{{ documento }}">
+                              <input type="hidden" name="hora" id="id_hora" value="22">
+                              <p>&nbsp; &nbsp; </p>
+                              <button class="btn btn-primary" type="submit">Guardar</button>
+                              <p>&nbsp; &nbsp; </p>
+                      {% endif %}
+                      </form>
+                      {% if lista_nueva %}
+                      <form class="" action="{% url 'horaEntrevista' %}" method="POST">
+                          {% csrf_token %}
+                          <input type="hidden" name="diaMes" id="diaMes" value="{{ fecha }}">
+                          <input type="hidden" name="docum" id="docum" value="{{ documento }}">
+                          <label class="control-label" for="textinput">Hora de la entrevista</label><br>
+                          <select id="id_hora" name="hora" type="text" class="form-control input-md" required>
+                              <option value="{{ hora }}">Hora</option>
+                                  {% for row in lista_nueva %}
+                                      <option value="{{ row.id }}">{{ row.hora }}</option>
+                                  {% endfor %}
+                          </select>
+                          <p>&nbsp; &nbsp; </p>
+                          <button class="btn btn-primary" type="submit">Guardar</button>
+                          <p>&nbsp; &nbsp; </p>
+
+                    </div>
+                    </form>
+                    {% endif %}
+                    {% if nombreGuardado %}
+                    <form class="" action="{% url 'reporte' %}" method="POST">
+                        {% csrf_token %}
+                      <div class="">
+                        <input type="hidden" name="doc" id="documento" value="{{ documen }}">
+                        <!--<h4>{{ nombreGuardado }} Se agendó su entrevista  para el día {{ diaGuardado }} a las {{ horaGuardada }}</h4>-->
+                        <h4>{{ nombreGuardado }} A guardado satisfactoriamente su informacion</h4>
+                        <label for="">Descarge el pdf de su registro</label>  <button class="btn btn-primary" type="submit">pdf</button>
+                      </div>
+                    </form>
+                    {% endif %}
+
+                    {% if nombreAgendado %}
+                    <form class="" action="{% url 'reporte' %}" method="POST">
+                        {% csrf_token %}
+                      <div class="">
+                        <input type="hidden" name="doc" id="documento" value="{{ documen }}">
+                        <h4>{{ nombreAgendado }} Ya se encuentra registrado(a) y agendado(a)</h4>
+                        <label for="">Descarge el pdf de su registro</label>  <button class="btn btn-primary" type="submit">pdf</button>
+                      </div>
+                    </form>
+                    {% endif %}
+    	            </div>
+    	       </div>
+    	     </div>
+         </div>
+
+		  </div>
+		</div>
+  </div></div></div></div></div></div>
+
+<br><br><br>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+{% endblock %}

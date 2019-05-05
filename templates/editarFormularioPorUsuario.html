@@ -1,0 +1,788 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Secretaría para el Desarrollo Social - Area de educación</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- styles -->
+    <link href="{% static 'css/one-page-wonder.css' %}" rel="stylesheet">
+    <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
+  </head>
+  <body onload="valor_botones(chTipodoc,chGenero,chEstadoCivil,chpadreCabeza,chPoblacion,chUbicacionEst,chVivienda,chUbicacionPadres,chdependenciaEconomica,choficialPrivado,chacreditacionUniversidad,chtecnicaTecnologica,chacreditacionCarrera,chcicloEducacion,chmodalidad,chpropedeutico,chbeneficiarioprogramas,chincentivoEducativo,chextraAcademicas,chextraAcademicaPaga);" style="padding-top: 0px;">
+
+          <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#"><b>Simdeesea Web</b></a>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+
+    <input type="hidden" id="chTipodoc" value="{{aspiranteEstimulo.tipoDocumento}}">
+    <input type="hidden" id="chGenero" value="{{aspiranteEstimulo.genero}}">
+    <input type="hidden" id="chEstadoCivil" value="{{aspiranteEstimulo.estadoCivil}}">
+    <input type="hidden" id="chpadreCabeza" value="{{aspiranteEstimulo.cabezaFamilia}}">
+    <input type="hidden" id="chPoblacion" value="{{aspiranteEstimulo.pertenencia}}">
+    <input type="hidden" id="chUbicacionEst" value="{{aspiranteEstimulo.ubicacionEstudiante}}">
+    <input type="hidden" id="chVivienda" value="{{aspiranteEstimulo.vivienda}}">
+    <input type="hidden" id="chUbicacionPadres" value="{{aspiranteEstimulo.ubicacionPadres}}">
+    <input type="hidden" id="chdependenciaEconomica" value="{{aspiranteEstimulo.dependenciaEconomica}}">
+    <input type="hidden" id="choficialPrivado" value="{{aspiranteEstimulo.oficialPrivado}}">
+    <input type="hidden" id="chacreditacionUniversidad" value="{{aspiranteEstimulo.acreditacionUniversidad}}">
+    <input type="hidden" id="chtecnicaTecnologica" value="{{aspiranteEstimulo.tecnicaTecnologica}}">
+    <input type="hidden" id="chacreditacionCarrera" value="{{aspiranteEstimulo.acreditacionCarrera}}">
+    <input type="hidden" id="chcicloEducacion" value="{{aspiranteEstimulo.cicloEducacion}}">
+    <input type="hidden" id="chmodalidad" value="{{aspiranteEstimulo.modalidad}}">
+    <input type="hidden" id="chpropedeutico" value="{{aspiranteEstimulo.propedeutico}}">
+    <input type="hidden" id="chbeneficiarioprogramas" value="{{aspiranteEstimulo.beneficiarioprogramas}}">
+    <input type="hidden" id="chincentivoEducativo" value="{{aspiranteEstimulo.incentivoEducativo}}">
+    <input type="hidden" id="chextraAcademicas" value="{{aspiranteEstimulo.extraAcademicas}}">
+    <input type="hidden" id="chextraAcademicaPaga" value="{{aspiranteEstimulo.extraAcademicaPaga}}">
+  	<div class="header">
+	     <div class="container">
+          <div class="row">
+             <div class="col-md-12">
+                <!-- Logo -->
+                <div class="logo text-center">
+                   <h1>Municipio de Anapoima Secretaría para el Desarrollo Social - Area de educación</h1>
+                </div>
+             </div>
+          </div>
+       </div>
+	</div>
+
+    <div class="container-fluid">
+    	<div class="row">
+              <form class="form-horizontal" method="post" action="editarBusquedaParcialmente">
+               {% csrf_token %}
+                  <div class="col-sm-12">
+                    <h3>Formulario de inscripción.</h3>
+                  </div>
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                      <p><h4>Estímulo económico para estudiantes de educación superior 2018</h4></p>
+                      <p><h6>En mi calidad de postulante al Programa de Estímulos Educativos para Estudiantes de Educación Superior del Municipio de Anapoima – Cundinamarca, identificado (a) con el nombre y el número de documento que aparecen en el formulario subsiguiente, declaro que la información allí diligenciada es veraz y verificable; declaro estar informado de que cualquier falsedad de la información suministrada puede generar sanciones establecidas en la normatividad legar colombiana vigente al respecto, y que cuento con la disponibilidad horaria y voluntad para participar en el programa indicado durante el presente semestre. En constancia firmo en la versión impresa al final del formulario</h6></p>
+
+                  </div>
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+
+                  <h3 style="COLOR: #000000; BACKGROUND-COLOR: #8acc8b" ALIGN=center>INFORMACIÓN PERSONAL</h3>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                          <!-- Text input-->
+                              <div class="col-sm-4 col-md-4 col-lg-4">
+                                  <label class="control-label" for="textinput">1 Nombres</label>
+                              </div>
+                              <div class="col-sm-8 col-md-8 col-lg-8">
+                                  <input id="Nombres" name="1Nombres" readonly="readonly" onblur="this.value=this.value.toUpperCase()" value="{{aspiranteEstimulo.nombre}}" type="text" placeholder="nombre completo" class="form-control" required>
+                              </div>
+                      </div>
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                          <!-- Text input-->
+                              <div class="col-sm-4 col-md-4 col-lg-4">
+                                  <label class="control-label" for="textinput">2 Apellidos</label>
+                              </div>
+                              <div class="col-sm-8 col-md-8 col-lg-8">
+                                  <input id="Apellidos" name="2Apellidos" readonly="readonly" onblur="this.value=this.value.toUpperCase()" type="text" value="{{aspiranteEstimulo.apellido}}" class="form-control input-md" required>
+                              </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12"><br></div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+	                    <div class="col-sm-6 col-md-6 col-lg-6">
+                          <div class="col-sm-4 col-md-4 col-lg-4">
+                              <label class="control-label" for-"Tipo_documento">3 Tipo de documento</label>
+                          </div>
+                          <div class="col-sm-4 col-md-4 col-lg-4">
+                              <label class="control-label" for="CC">C.C</label>
+                              <input type="radio" name="3Tipo_documento" id="CC" value="CC" onclick="otroDoc()" required>
+                              <label class="control-label" for="T.I">T.I</label>
+                              <input type="radio" name="3Tipo_documento" value="T.I" readonly="readonly" id="T.I" onclick="otroDoc()"/>
+                              <label class="control-label" for="Otro">Otro</label>
+                              <input type="radio" name="3Tipo_documento" value="otro"readonly="readonly" id="Tipo_documento_otro" onclick="otroDoc()"/>
+                              <input type="text" name="documentoOtro" style="visibility:hidden" readonly="readonly" id="documentoOtro" value="" placeholder="¿Cual?" class="form-control"/>
+                          </div>
+	                    </div>
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                          <div class="col-sm-4 col-md-4 col-lg-4">
+                              <label class="control-label" for="textinput">4 Documento N°</label>
+                          </div>
+                          <div class="col-md-8 col-sm-8 col-lg-8">
+                            <input id="Documento" onkeypress="return caracter(event);" name="4Documento"  type="text" value="{{aspiranteEstimulo.documento}}" class="form-control" required>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12"></div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+	                    <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <label class="control-label" for="textinput">5 Email</label>
+                            </div>
+                          <div class="col-sm-8 col-md-8 col-lg-8">
+                            <input id="Email" name="5Email"  type="email" readonly="readonly" value="{{aspiranteEstimulo.email}}" class="form-control" required>
+                          </div>
+	                    </div>
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <label class="control-label" for="textinput">6 Celular</label>
+                            </div>
+                          <div class="col-sm-4 col-md-4 col-lg-4">
+                              <input id="Celular" onkeypress="return Valida_celular(event);" name="6Celular" type="text" value="{{aspiranteEstimulo.celular}}" class="form-control" required>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12"><br></div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+	                    <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <label class="control-label" for="textinput">7 Género</label>
+                            </div>
+                          <div class="col-sm-4 col-md-4 col-lg-4">
+                              <label class="control-label" for="Hombre">M</label>
+                              <input disabled type="radio" readonly="readonly" name="7Genero" value="Masculino" id="Hombre" checked/>
+                              <label class="control-label" for="Mujer">F</label>
+                              <input disabled type="radio"  readonly="readonly" name="7Genero" value="Femenino" id="Mujer"/ checked>
+                          </div>
+	                    </div>
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <label class="control-label" for="textinput">8 Edad</label>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3">
+                              <input type="number" name="8Edad" onkeypress="return Valida_edad(event);" min="14" max="60" step="1" value="{{aspiranteEstimulo.edad}}" class="form-control input-md" required/>
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <label class="control-label" for="textinput">Años</label>
+                            </div>
+                        </div>
+                  </div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12"><br></div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+	                    <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <label class="control-label" for="textinput">9 Estado civil</label>
+                            </div>
+                          <div class="col-sm-8 col-md-8 col-lg-8">
+                              <label class="control-label" for="Soltero">Soltero</label>
+                              <input disabled type="radio" name="9Estado_civil" value="Soltero" id="Soltero" checked/>
+                              <label class="control-label" for="Casado">Casado</label>
+                              <input disabled type="radio" name="9Estado_civil" value="Casado" id="Casado"/ checked>
+                              <label class="control-label" for="Union_libre">Union libre</label>
+                              <input disabled type="radio" name="9Estado_civil" value="Union libre" id="Union_libre"/ checked>
+                              <label class="control-label" for="Civil_otro">Otro</label>
+                              <input disabled type="radio" name="9Estado_civil" value="Otro" id="Civil_otro"/ checked>
+                          </div>
+	                    </div>
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <label class="control-label" for="textinput">10 ¿Es padre o madre</label><br>
+                                <label class="control-label" for="textinput">cabeza de familia</label>
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <label class="control-label" for="Si">Si</label>
+                                <input disabled type="radio" name="10Cabeza_familia" value="Si" id="hijos_Si" onclick="cuantosHijos()" checked/>
+                                <label class="control-label" for="No">No</label>
+                                <input disabled type="radio" name="10Cabeza_familia" value="No"id="hijos_No" onclick="cuantosHijos()"/ checked>
+                                <label class="control-label" id="label_Hijos" for="No">Cuantos hijos?</label>
+                            </div>
+                            <div class="col-sm-2 col-md-2 col-lg-2">
+                              <input type="number" readonly="readonly" name="hijos" value="{{aspiranteEstimulo.hijos}}" id="hijos" min="0" max="20" class="form-control"/ checked>
+                            </div>
+                        </div>
+                  </div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12"><br></div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+	                    <div class="col-sm-6 col-md-6 col-lg-6">
+                          <div class="col-sm-5 col-md-5 col-sm-5 col-lg-5 col-lg-5">
+                              <label class="control-label" for="textinput">11 ¿Pertenece a alguna de</label>
+                              <label class="control-label" for="textinput">las siguientes Poblaciones?</label>
+                          </div>
+                          <div class="col-sm-7 col-md-7 col-lg-7">
+                              <label class="control-label" for="Desplazado">Desplazado</label>
+                              <input disabled type="radio" name="11pertenencia" value="Desplazado" readonly="readonly" id="Desplazado" onclick="otroPertenecia()" checked/>
+                              <label class="control-label" for="Afrodecendiente">Afrodecendiente</label>
+                              <input disabled type="radio" name="11pertenencia" value="Afrodecendiente" readonly="readonly" id="Afrodecendiente" onclick="otroPertenecia()"/ checked>
+                              <label class="control-label" for="Indigena">Indígena</label>
+                              <input disabled type="radio" name="11pertenencia" value="Indigena" readonly="readonly" id="Indigena" onclick="otroPertenecia()"/ checked>
+                              <label class="control-label" for="Reinsertado">Reinsertado</label>
+                              <input disabled type="radio" name="11pertenencia" value="Reinsertado" readonly="readonly" id="Reinsertado" onclick="otroPertenecia()"/ checked>
+                              <label class="control-label" for="pertenencia_ninguno">Ninguno</label>
+                              <input disabled type="radio" name="11pertenencia" value="Ninguno" readonly="readonly" id="pertenencia_ninguno" onclick="otroPertenecia()"/ checked>
+                              <label class="control-label" for="Otro_Poblaciones">¿Otro?</label>
+                              <input disabled type="radio" name="11pertenencia" value="Otro" readonly="readonly" id="Otro_Poblaciones" onclick="otroPertenecia()"/ checked>
+                              <input disabled type="text" name="pertenenciaOtro" value="{{aspiranteEstimulo.pertenenciaOtro}}" readonly="readonly" id="pertenenciaOtro" class="form-control"/ checked>
+
+                          </div>
+	                    </div>
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                          <div class="col-sm-4 col-md-4 col-lg-5">
+                              <label class="control-label" for="textinput">12 Dirección de residencia </label>
+                              <label class="control-label" for="textinput">del estudiante </label>
+                          </div>
+                          <div class="col-sm-8 col-md-8 col-lg-7">
+                          <input id="Dirección_estudiante" name="12DireEstudiante" onblur="this.value=this.value.toUpperCase()" type="text" value="{{aspiranteEstimulo.direccionEstudiante}}" class="form-control">
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12"><br></div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+	                    <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <label class="control-label" for="textinput">12.1 Ciudad o municipio</label>
+                            </div>
+                          <div class="col-sm-3 col-md-3 col-lg-3">
+                            <select id="Ciudad_estudiante" onchange="selec_vereda1(Ciudad_estudiante)" name="Ciudad_estudiante" type="text" class="form-control input-md" required>
+                                <option value="{{aspiranteEstimulo.ciudadEstudiante}}">{{aspiranteEstimulo.ciudadEstudiante}}</option>
+                                    {% for row in municipio %}
+                                        <option value="{{ row.municipio }}">{{ row.municipio }}</option>
+                                    {% endfor %}
+                            </select>
+                          </div>
+                          <div class="col-sm-2 col-md-2 col-lg-2">
+                              <label class="control-label" id="label_vereda_estudiante" for="textinput">brr/vereda</label>
+                          </div>
+                          <div class="col-sm-3 col-md-3 col-lg-3">
+                            <select id="Barrio_vereda_estudiante" name="Barrio_vereda_estudiante" type="text" class="form-control input-md" required>
+                                <option value="{{aspiranteEstimulo.barrioEstudiante}}">{{aspiranteEstimulo.barrioEstudiante}}</option>
+                                    {% for row in vereda %}
+                                        <option value="{{ row.vereda }}">{{ row.vereda }}</option>
+                                    {% endfor %}
+                            </select>
+                          </div>
+	                    </div>
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">12.2 Ubicacion de la</label><br>
+                                <label class="control-label" for="textinput">residencia del estudiante</label>
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <label class="control-label" for="Urbano">Urbano</label>
+                                <input type="radio" name="Ubicacion_residencia_estudiante" value="Urbano" id="Urbano" required/>
+                                <label class="control-label" for="Rural">Rural</label>
+                                <input type="radio" name="Ubicacion_residencia_estudiante" value="Rural"id="Rural"/>
+                            </div>
+                        </div>
+                  </div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12"><br></div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+	                    <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <label class="control-label" for="textinput">13 Vivienda</label>
+                            </div>
+                          <div class="col-sm-8 col-md-8 col-lg-8">
+                              <label class="control-label" for="Propia">Propia</label>
+                              <input disabled type="radio" name="13Vivienda" value="Propia" id="Propia" checked/>
+                              <label class="control-label" for="Arrendada">Arrendada</label>
+                              <input disabled type="radio" name="13Vivienda" value="Arrendada" id="Arrendada"/ checked>
+                              <label class="control-label" for="Familiar">Familiar</label>
+                              <input disabled type="radio" name="13Vivienda" value="Familiar" id="Familiar"/ checked>
+                              <label class="control-label" for="Cuidanderos">Cuidanderos</label>
+                              <input disabled type="radio" name="13Vivienda" value="Cuidanderos" id="Cuidanderos" checked>
+                          </div>
+	                    </div>
+                  </div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12"><br></div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+	                    <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-sm-5 col-md-5 col-sm-5 col-lg-5 col-lg-5">
+                                <label class="control-label" for="textinput">14 Estrato socioeconómico:</label>
+                            </div>
+                          <div class="col-sm-3 col-md-3 col-lg-3">
+                              <input type="number" name="14Estrato" min="1" max="6" step="1" value="{{aspiranteEstimulo.estrato}}" readonly="readonly" class="form-control input-md" required>
+                          </div>
+	                    </div>
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                          <div class="col-sm-4 col-md-4 col-lg-4">
+                              <label class="control-label" for="textinput">15 Puntaje SISBEN</label>
+                          </div>
+                          <div class="col-sm-3 col-md-3 col-lg-3">
+                            <INPUT id="txtChar" value="{{aspiranteEstimulo.sisben}}" readonly="readonly"  type="text" name="15SISBEN" class="form-control input-md" required>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                    <h3 style="COLOR: #000000; BACKGROUND-COLOR: #8acc8b" ALIGN=center>INFORMACIÓN FAMILIAR</h3>
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <label class="control-label" for="textinput">16 ¿Cuántas personas componen su núcleo faliliar?</label>
+                            </div>
+                          <div class="col-md-1">
+                              <input type="number" id="Nucleo" value="{{aspiranteEstimulo.nucleoFamiliar}}" readonly="readonly" name="16Nucleo_familiar" min="0" max="7" class="form-control input-md" required>
+                          </div>
+                  </div>
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="col-md-1">
+
+                    </div>
+                    <div class="col-sm-8 col-md-8 col-lg-10">
+                      <br>
+                        <input type="text" placeholder="NOMBRE Y APELLIDO" readonly="readonly"><input type="text" placeholder="PARENTESCO"  readonly="readonly"><input type="text" placeholder="EDAD"  readonly="readonly"><input type="text" placeholder="OCUPACION"  readonly="readonly"><input type="text" placeholder="CELULAR"  readonly="readonly"><br>
+                        <input type="text" name="parentesco1" id="1" readonly="readonly" placeholder="digite nombre y apellidos"><input type="text" name="parentesco1" id="2" readonly="readonly" placeholder="digite parentesco"><input type="text" name="parentesco1" id="3" readonly="readonly" placeholder="digite edad"><input type="text" name="parentesco1" id="4" readonly="readonly" placeholder="digite ocupacion"><input type="text" name="parentesco1" id="5"readonly="readonly" placeholder="digite celular"><br>
+                        <input type="text" name="parentesco2" id="6" readonly="readonly" placeholder="digite nombre y apellidos"><input type="text" name="parentesco2" id="7" readonly="readonly" placeholder="digite parentesco"><input type="text" name="parentesco2" id="8" readonly="readonly" placeholder="digite edad"><input type="text" name="parentesco2" id="9" readonly="readonly" placeholder="digite ocupacion"><input type="text" name="parentesco2" id="10"readonly="readonly" placeholder="digite celular"><br>
+                        <input type="text" name="parentesco3" id="11" readonly="readonly" placeholder="digite nombre y apellidos"><input type="text" name="parentesco3" id="12" readonly="readonly" placeholder="digite parentesco"><input type="text" name="parentesco3" id="13" readonly="readonly" placeholder="digite edad"><input type="text" name="parentesco3" id="14" readonly="readonly" placeholder="digite ocupacion"><input type="text" name="pCelular3" id="15"readonly="readonly" placeholder="digite celular"><br>
+                        <input type="text" name="parentesco4" id="16" readonly="readonly" placeholder="digite nombre y apellidos"><input type="text" name="parentesco4" id="17" readonly="readonly" placeholder="digite parentesco"><input type="text" name="parentesco4" id="18" readonly="readonly" placeholder="digite edad"><input type="text" name="parentesco4" id="19" readonly="readonly" placeholder="digite ocupacion"><input type="text" name="parentesco4" id="20"readonly="readonly" placeholder="digite celular"><br>
+                        <input type="text" name="parentesco5" id="21" readonly="readonly" placeholder="digite nombre y apellidos"><input type="text" name="parentesco5" id="22" readonly="readonly" placeholder="digite parentesco"><input type="text" name="parentesco5" id="23" readonly="readonly" placeholder="digite edad"><input type="text" name="parentesco5" id="24" readonly="readonly" placeholder="digite ocupacion"><input type="text" name="parentesco5" id="25"readonly="readonly" placeholder="digite celular"><br>
+                        <input type="text" name="parentesco6" id="26" readonly="readonly" placeholder="digite nombre y apellidos"><input type="text" name="parentesco6" id="27" readonly="readonly" placeholder="digite parentesco"><input type="text" name="parentesco6" id="28" readonly="readonly" placeholder="digite edad"><input type="text" name="parentesco6" id="28" readonly="readonly" placeholder="digite ocupacion"><input type="text" name="parentesco6" id="30"readonly="readonly" placeholder="digite celular"><br>
+                        <input type="text" name="parentesco7" id="31" readonly="readonly" placeholder="digite nombre y apellidos"><input type="text" name="parentesco7" id="32" readonly="readonly" placeholder="digite parentesco"><input type="text" name="parentesco7" id="33" readonly="readonly" placeholder="digite edad"><input type="text" name="parentesco7" id="34" readonly="readonly" placeholder="digite ocupacion"><input type="text" name="parentesco7" id="35"readonly="readonly" placeholder="digite celular"><br>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12"><br></div>
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+	                    <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <label class="control-label" for="textinput">17 Dirección residencia</label>
+                                <label class="control-label" for="textinput">de los padres</label>
+                            </div>
+                          <div class="col-sm-8 col-md-8 col-lg-8">
+                          <input id="Dirección_padres" name="17DirePadres" onblur="this.value=this.value.toUpperCase()" type="text" value="{{aspiranteEstimulo.direccionPadres}}" class="form-control" >
+                          </div>
+	                    </div>
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <label class="control-label" for="textinput">17.1 Ciudad o municipio</label>
+                            </div>
+                          <div class="col-md-3">
+                            <select id="Ciudad_padres" onchange="selec_vereda(Ciudad_padres)" name="Ciudad_padres" type="text" class="form-control input-md" required>
+                                <option value="{{aspiranteEstimulo.ciudadPadres}}">{{aspiranteEstimulo.ciudadPadres}}</option>
+                                    {% for row in municipio %}
+                                        <option value="{{ row.municipio }}">{{ row.municipio }}</option>
+                                    {% endfor %}
+                            </select>
+                          </div>
+                          <div class="col-md-2">
+                              <label class="control-label" id="label_vereda_padres" for="textinput">brr/vereda</label>
+                          </div>
+                          <div class="col-md-3">
+                            <select id="Barrio_vereda_padres" name="Barrio_vereda_padres" type="text" class="form-control input-md" required>
+                                <option value="{{aspiranteEstimulo.barrioPadres}}">{{aspiranteEstimulo.barrioPadres}}</option>
+                                    {% for row in vereda %}
+                                        <option value="{{ row.vereda }}">{{ row.vereda }}</option>
+                                    {% endfor %}
+                            </select>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12"><br></div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <label class="control-label" for="textinput">Ubicacion de residencia</label><br>
+                                <label class="control-label" for="textinput">de los padres</label>
+                            </div>
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <label class="control-label" id="label_urbano" for="Urbano_padres">Urbano</label>
+                                <input type="radio" name="Ubicacion_padres" value="Urbano" id="Urbano_padres" required/>
+                                <label class="control-label" id="label_rural" for="Rural">Rural</label>
+                                <input type="radio" name="Ubicacion_padres" value="Rural"id="Rural_padres"/>
+                            </div>
+                      </div>
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <label class="control-label" for="textinput">18 Servicios públicos</label>
+                            </div>
+                          <div class="col-sm-12 col-md-12 col-lg-12">
+                              <input type="text" id="18servicios_publicos[]" readonly="readonly" value="{{aspiranteEstimulo.serviciosPublicos}}" class="form-control input-md">
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12"><br></div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+	                    <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <label class="control-label" for="textinput">19 ¿De quién depende </label><br>
+                                <label class="control-label" for="textinput"> económicamente?</label>
+                            </div>
+                          <div class="col-sm-8 col-md-8 col-lg-8">
+
+                              <label class="control-label" for="Papa">Papa</label>
+                              <input disabled type="radio" name="19dependencia_economica"  value="Papa" readonly="readonly" id="Papa" checked/>
+                              <label class="control-label" for="Mama">Mama</label>
+                              <input disabled type="radio" name="19dependencia_economica" value="Mama" readonly="readonly" id="Mama"/ checked>
+                              <label class="control-label" for="Ambos">Ambos</label>
+                              <input disabled type="radio" name="19dependencia_economica" value="Ambos" id="Ambos"/ checked>
+                              <label class="control-label" for="conyugue">conyugue</label>
+                              <input disabled type="radio" name="19dependencia_economica" value="conyugue" id="conyugue"/ checked>
+                              <label class="control-label" for="independiente">independiente</label>
+                              <input disabled type="radio" name="19dependencia_economica" value="independiente" id="independiente"/ checked>
+                              <label class="control-label" for="otro familiar">otro familiar</label>
+                              <input disabled type="radio" name="19dependencia_economica" value="otro familiar" id="otro familiar"/ checked>
+                              <input disabled type="text" name="dependenciaOtro" style="visibility:hidden" value="" id="dependenciaOtro" placeholder="¿Cual?" class="form-control"/ checked>
+
+                          </div>
+	                    </div>
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-md-5 col-sm-5 col-lg-5">
+                                <label class="control-label" for="textinput">20 Ingresos mensuales del</label><br>
+                                <label class="control-label" for="textinput">nucleo familiar $</label>
+                            </div>
+                          <div class="col-md-7 col-sm-7 col-lg-7 col-sm-7 col-lg-7">
+                            <input id="inputNumero" onkeypress="return caracter(event);" value="{{aspiranteEstimulo.ingresosFamilia}}" readonly="readonly" name="20Ingresos_familia" type="text"Ingresos nucleo familiar class="form-control" required>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12"><br></div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                    <h3 style="COLOR: #000000; BACKGROUND-COLOR: #8acc8b" ALIGN=center>INFORMACIÓN ACADEMICA</h3>
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+
+	                    <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <label class="control-label" for="textinput">21 Nombre del colegio</label>
+                                <label class="control-label" for="textinput">del que se graduó</label>
+                            </div>
+                          <div class="col-sm-8 col-md-8 col-lg-8">
+                          <select id="Colegio"  name="21colegio" readonly="readonly" type="text" class="form-control input-md" required>
+                              <option value="{{aspiranteEstimulo.colegio}}">{{aspiranteEstimulo.colegio}}</option>
+                          </select>
+                          </div>
+	                    </div>
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <label class="control-label" for="textinput">22 ¿el colegio del que</label>
+                                <label class="control-label" for="textinput">se graduó es?</label>
+                            </div>
+                          <div class="col-md-2">
+                            <label class="control-label" for="Oficial">Oficial</label>
+                            <input disabled type="radio" name="22Oficial_privado" value="Oficial" readonly="readonly" id="Oficial" checked/>
+                          </div>
+                          <div class="col-md-3">
+                            <label class="control-label" for="Privado">Privado</label>
+                            <input disabled type="radio" name="22Oficial_privado" value="Privado" readonly="readonly" id="Privado"/ checked>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12"><br></div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+	                    <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-sm-5">
+                                <label class="control-label" for="textinput">23 Año en que se graduó</label>
+                            </div>
+                          <div class="col-md-4">
+                          <input type="number" readonly="readonly" name="23ano_terminacion" onkeypress="return caracter(event)"; min="1990" max="2025" step="1" value="{{aspiranteEstimulo.anoTerminacion}}" class="form-control input-md" required>
+                          </div>
+                        </div>
+                      <div class="col-sm-6">
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <label class="control-label" for="textinput">23.1 Acta de grado n°</label>
+                            </div>
+                          <div class="col-md-3">
+                          <input type="text" readonly="readonly" name="actaGrado" onkeypress="return caracter(event)"; value="{{aspiranteEstimulo.actaGrado}}" class="form-control input-md">
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                     <h3 style="COLOR: #000000; BACKGROUND-COLOR: #8acc8b" ALIGN=center>INFORMACIÓN DE LA INSTITUCION DE EDUCACION SUPERIOR (IES)</h3>
+	                    <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-sm-5">
+                                <label class="control-label" for="textinput">24 Instución de Educación</label><br>
+                                <label class="control-label" for="textinput">superior(IES)</label>
+                            </div>
+                          <div class="col-sm-7">
+                            <select id="Universidad" readonly="readonly" required onchange="seleccionSENA(Universidad)" name="24Universidad" type="text" class="form-control input-md">
+                                <option value="{{aspiranteEstimulo.universidad}}">{{aspiranteEstimulo.universidad}}</option>
+                            </select>
+                            <select id="centrosSena" readonly="readonly" name="centrosSena"  type="text" class="form-control input-md" required>
+                                <option value="{{aspiranteEstimulo.centrosSena}}">{{aspiranteEstimulo.centrosSena}}</option>
+                            </select>
+                          </div>
+	                    </div>
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                          <div class="col-sm-4 col-md-4 col-lg-4">
+                              <label class="control-label" for="textinput">25 Sede(IES)</label>
+                          </div>
+                        <div class="col-sm-8 col-md-8 col-lg-8">
+                        <select id="Sede" readonly="readonly" name="25Sede" type="text" class="form-control input-md" required>
+                            <option value="{{aspiranteEstimulo.sede}}">{{aspiranteEstimulo.sede}}</option>
+                        </select>
+                        </div>
+                      </div>
+                  </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-12"><br>
+
+	                    <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-md-5 col-sm-5 col-lg-5">
+                                <label class="control-label" for="textinput">26 ¿La (IES) cuenta con</label><br>
+                                <label class="control-label" for="textinput">acreditación de alta calidad?	</label>
+                            </div>
+                          <div class="col-md-7 col-sm-7 col-lg-7">
+                              <label class="control-label" for="Acreditación_si">Si</label>
+                              <input disabled type="radio" name="26AcreditaUniversidad" value="Si" id="Acreditación_si" checked/>
+                              <label class="control-label" for="Acreditación_no">No</label>
+                              <input disabled type="radio" name="26AcreditaUniversidad" value="No" id="Acreditación_no"/ checked>
+                              <label class="control-label" for="Acreditación_curso">En curso</label>
+                              <input disabled type="radio" name="26AcreditaUniversidad" value="En curso" id="Acreditación_curso"/ checked>
+                              <label class="control-label" for="Acreditación_nose">No se</label>
+                              <input type="radio" name="26AcreditaUniversidad" value="No se" id="Acreditación_nose"/>
+
+                          </div>
+                      </div>
+
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <label class="control-label" for="textinput">27 Carrera que cursa</label>
+                            </div>
+                          <div class="col-sm-8 col-md-8 col-lg-8">
+                          <input id="Carrera" readonly="readonly" name="27Carrera" onblur="this.value=this.value.toUpperCase()"  type="text" value="{{aspiranteEstimulo.carrera}}" class="form-control" required>
+                          </div>
+                       </div>
+                     </div>
+                </div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+	                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="col-sm-12 form-group">
+                            <div class="col-md-4">
+                                <label class="control-label" for="textinput">27.1 ¿La carrera que</label><br>
+                                <label class="control-label" for="textinput">estudia es?</label><br>
+                            </div>
+                          <div class="col-md-7">
+                              <label class="control-label" for="Tecnica">Tecnica</label>
+                              <input disabled type="radio" name="tecnicaTecnologica" value="Tecnica" id="Tecnica" checked/>
+                              <label class="control-label" for="Tecnologica">Tecnologica</label>
+                              <input disabled type="radio" name="tecnicaTecnologica" value="Tecnologica" id="Tecnologica"/ checked>
+                              <label class="control-label" for="Porfesional">Profesional</label>
+                              <input disabled type="radio" name="tecnicaTecnologica" value="Porfesional" id="Porfesional"/ checked>
+                          </div>
+                       </div>
+                  </div>
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-md-5 col-sm-5 col-lg-5">
+                                <label class="control-label" for="textinput">28 ¿La carrera cuenta con</label><br>
+                                <label class="control-label" for="textinput">acreditación de alta calidad?	</label>
+                            </div>
+                          <div class="col-md-7 col-sm-7 col-lg-7">
+                              <label class="control-label" for="Acreditación_si">Si</label>
+                              <input disabled type="radio" name="28AcreditaCarrera" value="Si" id="Acreditación_carrera_si" checked/>
+                              <label class="control-label" for="Acreditación_no">No</label>
+                              <input disabled type="radio" name="28AcreditaCarrera" value="No" id="Acreditación_carrera_no"/ checked>
+                              <label class="control-label" for="Acreditación_curso">En curso</label>
+                              <input disabled type="radio" name="28AcreditaCarrera" value="En curso" id="Acreditación_carrera_en_curso"/ checked>
+                              <label class="control-label" for="Acreditación_nose">No se</label>
+                              <input type="radio" name="28AcreditaCarrera" value="No se" id="Acreditación_nose"/>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12"><br></div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+	                    <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <label class="control-label" for="textinput">29 ¿Estudia por?</label><br>
+                            </div>
+                          <div class="col-sm-8 col-md-8 col-lg-8">
+                              <label class="control-label" for="Años">Años</label>
+                              <input disabled type="radio" name="29ciclo_educacion" value="Años" id="Años" checked/>
+                              <label class="control-label" for="Semestre">Semestre</label>
+                              <input disabled type="radio" name="29ciclo_educacion" value="Semestre" id="Semestre"/ checked>
+                              <label class="control-label" for="Trimestre">Trimestre</label>
+                              <input disabled type="radio" name="29ciclo_educacion" value="Trimestre" id="Trimestre"/ checked>
+                          </div>
+	                    </div>
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <label class="control-label" for="textinput">29.1 ¿Que año semestre</label><br>
+                                <label class="control-label" for="textinput">o trimestre cursa?</label><br>
+                            </div>
+                          <div class="col-md-2">
+                              <input type="number" name="semestreEnCurso" min="0" value="{{aspiranteEstimulo.semestreEnCurso}}" id="semestreEnCurso" class="form-control" required/>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12"><br></div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+	                    <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <label class="control-label" for="textinput">30 Modalidad de estudio</label><br>
+                            </div>
+                          <div class="col-sm-8 col-md-8 col-lg-8">
+                              <label class="control-label" for="Presencial">Presencial</label>
+                              <input disabled type="radio" name="30Modalidad" value="Presencial" id="Presencial" onclick="otroModalidad()" checked/>
+                              <label class="control-label" for="Semipresencial">Semipresencial</label>
+                              <input disabled type="radio" name="30Modalidad" value="Semipresencial" id="Semipresencial" onclick="otroModalidad()"/ checked>
+                              <label class="control-label" for="Virtual">Virtual</label>
+                              <input disabled type="radio" name="30Modalidad" value="Virtual" id="Virtual" onclick="otroModalidad()"/ checked>
+                              <label class="control-label" for="Otro">Otro</label>
+                              <input disabled type="radio" name="30Modalidad" value="modalidad_otro" id="modalidad_otro" onclick="otroModalidad()"/ checked>
+                              <input disabled type="text" name="modalidadOtro" style="visibility:hidden" id="modalidadOtro" value="" placeholder="¿Cual?" class="form-control"/ checked>
+                          </div>
+	                    </div>
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-md-5 col-sm-5 col-lg-5">
+                                <label class="control-label" for="textinput">31 ¿Su proceso formativo</label><br>
+                                <label class="control-label" for="textinput">es por ciclos propedéuticos?</label>
+                            </div>
+                          <div class="col-md-7 col-sm-7 col-lg-7">
+                              <label class="control-label" for="Acreditación_si">Si</label>
+                              <input disabled type="radio" name="31propedeuticos" value="Si" id="propedeuticos_Si" onclick="otroPropedeutico()" checked/>
+                              <label class="control-label" for="Acreditación_no">No</label>
+                              <input disabled type="radio" name="31propedeuticos" value="No" id="propedeuticos_No"  onclick="otroPropedeutico()"/ checked>
+                              <label class="control-label" for="Otro">Otro</label>
+                              <input disabled type="radio" name="31propedeuticos" value="otro" id="propedeuticos_otro"  onclick="otroPropedeutico()"/ checked>
+                              <input disabled type="text" name="propedeuticoOtro"  id="propedeuticoOtro" value="{{aspiranteEstimulo.propedeuticoOtro}}" class="form-control"/ checked>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12"><br></div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <label class="control-label" for="textinput">32 Valor base de la matrícula del </label><br>
+                                <label class="control-label" for="textinput">semestre actual(sin carnet, ni seguro)</label>
+                            </div>
+                          <div class="col-md-6">
+                            <input id="inputNumero" value="{{aspiranteEstimulo.valorMatricula}}" onkeypress="return caracter(event);" name="32Valor_matricula" type="text"Ingresos nucleo familiar class="form-control" required>
+                          </div>
+                      </div>
+                      <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                <label class="control-label" for="textinput">33 ¿es beneficiaro de</label><br>
+                                <label class="control-label" for="textinput">programas como?</label>
+                            </div>
+                          <div class="col-sm-8 col-md-8 col-lg-8">
+                              <label class="control-label" for="4x1">4x1</label>
+                              <input disabled type="radio" name="33beneficiario_programas" value="4x1" id="4x1" onclick="otroPrograma()" checked/>
+                              <label class="control-label" for="4x1">Ser pilo paga</label>
+                              <input disabled type="radio" name="33beneficiario_programas" value="pilo_paga" id="pilo_paga" onclick="otroPrograma()"/ checked>
+                              <label class="control-label" for="beneficiaro_programas_otro">Otro</label>
+                              <input disabled type="radio" name="33beneficiario_programas" value="otro" id="beneficiaro_programas_otro" onclick="otroPrograma()"/ checked>
+                              <label class="control-label" for="Beneficiario_ninguno">Ninguno</label>
+                              <input disabled type="radio" name="33beneficiario_programas" value="Ninguno" id="Beneficiario_ninguno" onclick="otroPrograma()"/ checked>
+                              <input disabled type="text" name="programaOtro" id="programaOtro" value="{{aspiranteEstimulo.programaOtro}}" class="form-control"/ checked>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12"><br></div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                          <div class="col-sm-4 col-md-4 col-lg-4">
+                              <label class="control-label" for="textinput">34 ¿Ha sido beneficiario</label><br>
+                              <label class="control-label" for="textinput"> de este programa?</label>
+                          </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4">
+                            <label class="control-label" for="incentivo_si">Si</label>
+                            <input disabled type="radio" name="34incentivo_educativo" value="Si" id="incentivo_si" onclick="incentivoCuantas()" checked/>
+                            <label class="control-label" for="incentivo_no">No</label>
+                            <input disabled type="radio" name="34incentivo_educativo" value="No" id="incentivo_no"  onclick="incentivoCuantas()"/ checked>
+                            <label class="control-label" id="label_veces" >Cuantas veces</label>
+
+                        </div>
+                        <div class="col-md-2">
+                          <input type="number" name="cuantasVeces" min="0" value="{{aspiranteEstimulo.cuantasVeces}}" readonly="readonly" id="cuantasVeces" class="form-control"/ checked>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                          <div class="col-md-5 col-sm-5 col-lg-5">
+                              <label class="control-label" for="textinput">35 ¿Practica actividades</label><br>
+                              <label class="control-label" for="textinput">Extra-académicas certificadas?</label>
+                          </div>
+                        <div class="col-md-7 col-sm-7 col-lg-7">
+                            <label class="control-label" for="extra_academicas_si">Si</label>
+                            <input disabled type="radio" name="35extra-academicas" value="si" id="extra_academicas_si" checked/>
+                            <label class="control-label" for="extra_academicas_no">No</label>
+                            <input disabled type="radio" name="35extra-academicas" value="No" id="extra_academicas_no"/ checked>
+                    disabled     </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12"><br></div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                          <div class="col-sm-6 col-md-6 col-lg-6">
+                              <label class="control-label" for="textinput">36 ¿Le pagan por hacerlas</label><br>
+                          </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <label class="control-label" for="extra_academicas_si">Si</label>
+                            <input disabled type="radio" name="36extra_academicas_pagan" value="si" id="extra_academicas_pagan_si" checked/>
+                            <label class="control-label" for="extra_academicas_no">No</label>
+                            <input disabled type="radio" name="36extra_academicas_pagan" value="No" id="extra_academicas_pagan_no"/ checked>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                              <div class="col-sm-6 col-md-6 col-lg-6">
+                                  <input disabled type="hidden" name="puntajeObtenido" value="0" class="form-control" checked>
+                              </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12"><br></div>
+
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="col-sm-5 col-md-5 col-lg-5">
+                     </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4 centered" >
+                        <button type="submit" class="btn btn-primary">Actualizar</button>
+                     </div>
+                  </div>
+	             </div>
+	           </div>
+	       </form>
+	    </div>
+	</div>
+	</div>
+</div>
+
+		  	</div>
+		  </div>
+		</div>
+
+<div class="col-sm-12 col-md-12 col-lg-12"><br><br></div>
+
+    <footer >
+         <div class="container">
+
+            <div class="copy text-center">
+               <p class="m-0 text-center text-white"> &copy;2017 Secretaria de Educación Anapoima. Todos los derechos reservados.</p>
+
+            </div>
+         </div>
+      </footer>
+
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/js/validacion_estimulos.js" type="text/javascript"></script>
+    <script src="/static/js/editarFormulario.js" type="text/javascript"></script>
+    <script src="/static/js/custom.js"></script>
+  </body>
+</html>

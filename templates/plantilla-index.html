@@ -1,0 +1,54 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Secretaria de educacion de Anapoima</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+    <!-- styles -->
+    <link href="{% static 'css/one-page-wonder.css' %}" rel="stylesheet">
+    <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
+  </head>
+  <body>
+
+  <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#"><b>Simdeesea Web</b></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'portada' %}"><b>Inicio</b></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    {%  block content %}
+
+    {% endblock %}
+
+          <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white"> &copy;2017 Secretaria de Educación Anapoima. Todos los derechos reservados.</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/validacion_estimulos.js' %}"</script>
+    <script src="{% static 'js/buscar.js' %}"</script>
+    <script src="{% static 'vendor/popper/popper.min.js' %}"</script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+  </body>
+</html>

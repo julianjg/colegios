@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block title %} {% endblock %}</title>
+
+    <meta charset="UTF-8">
+    <title>educacion</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/overrides.css" rel="stylesheet">
+    <link href="/static/css/procss.css" rel="stylesheet">
+    <script src="/static/js/html5shiv.min.js"></script>
+    <script src="/static/js/respond.min.js"></script>
+
+</head>
+<body>
+
+
+
+<!-- Static navbar -->
+<nav class="navbar navbar-default ">
+    <div class="col-sm-12">
+        <div class="row">
+
+
+            <div class="container-fluid barras">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">  Navegación de palanca</font> </span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                   <!-- <img src="/static/img/escudo-anapoima.png">-->
+
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Modificar<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="docentes.html">docentes</a></li>
+                                <li><a href="matriculas.html">  estudiantes  </a></li>
+                                <li><a href="matriculas.html">  traslado  </a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tramites <span class="caret"></span></a>
+                            <ul class="dropdown-menu color">
+                                <li><a href="matriculas.html">  matriculas  </a></li>
+                                <li><a href="docentes.html">  docentes  </a></li>
+                                <li><a href="registro.html">Usuarios</a></li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li>
+                             <form class="navbar-form navbar-right" action="{% url 'busqueda_docente' %}" method="get" >
+                                 <form class="navbar-form navbar-right">
+                                    <input type="text" name="dato" class="form-control" id="txtBuscar" placeholder="Buscar por ...">
+                                    <button id="btnBuscar" name="captar" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                </form>
+                            </form>
+                        </li>
+
+                         <li>
+                            <a href="/logout.html" >
+                                <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> cerrar cesion
+                            </a>
+                        </li>
+                    </ul>
+
+                </div><!--/.nav-collapse -->
+            </div><!--/.container-fluid -->
+        </div>
+    </div>
+
+</nav>
+
+ <div class="container initial">
+
+        <div class="col-sm-12 form-group">
+        <div class="col-sm-1">
+
+         </div>
+            <div class= "cuerpo">
+                <img src="/static/img/vamos.png" width="100%" style="margin: 0%; padding: 0%">
+             </div>
+
+        </div>
+
+         <div class="col-sm-12">
+             <legend>BUSQUEDAS SELECTIVAS DOCENTES</legend>
+         <div class="jum">
+            <body>
+                  <p>  secretaria de educacion de anapoima aqui podras hacer busquedas por diferentes criterios nombre, apellido o documento digita en buscar tu seleccion .  </p>
+                       <p>   </p>
+                <form class="navbar-form" action="{% url 'busqueda_docente' %}" method="get" >
+                    <!--<form class="col-sm-12 form-group action="{% url 'actualiza_docentes' %}" method="POST" >-->
+                    {% csrf_token %}
+                    <div class="container-fluid">
+
+                            <div class="col-md-3"></div>
+                            <div class="col-md-5">
+
+                              <!--<input id="textinput" name="Nombre" type="text" placeholder="ingresa tu nombre" class="form-control">-->
+                            <div class="col-sm-12 form-group">
+                                <div class="col-sm-4">
+                                    <label class="control-label" for="textinput">Nombre:</label>
+                                 </div>
+                                <div class="col-sm-8">
+                                    <input id="textinput" name="nombre" value="{{ docente.nombres }}" type="text" placeholder="" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 form-group">
+                                <div class="col-sm-4">
+                                    <label class="control-label" for="textinput">Apellidos:</label>
+                                 </div>
+                                <div class="col-sm-8">
+                                    <input id="textinput" name="apellido" value="{{ docente.apellidos }}" type="text" placeholder="" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 form-group">
+                                <div class="col-sm-4">
+                                    <label class="control-label" for="textinput">Documento:</label>
+                                 </div>
+                                <div class="col-sm-8">
+                                    <input id="textinput" name="documento" value="{{ docente.documento }}" type="text" placeholder="" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 form-group">
+                                <div class="col-sm-4">
+                                    <label class="control-label" for="textinput">Email:</label>
+                                 </div>
+                                <div class="col-sm-8">
+                                    <input type = "text" name="email" class="form-control" value="{{ docente.email }}" placeholder="">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 form-group">
+                                <div class="col-sm-4">
+                                    <label class="control-label" for="textinput">Asignatura:</label>
+                                 </div>
+                                <div class="col-sm-8">
+                                    <input id="textinput" name="asignatura" value="{{ docente.asignatura }}" type="text" placeholder="" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 form-group">
+                                <div class="col-sm-4">
+                                    <label class="control-label" for="textinput">Contacto:</label>
+                                 </div>
+                                <div class="col-sm-8">
+                                    <input id="textinput" name="contacto" value="{{ docente.contacto }}" type="text" placeholder="" class="form-control">
+                                </div>
+                            </div>
+
+                            <!--<input class="radio" type="radio" name="Tipo"/><h2>Estudiante</h2><br /> -->
+                            <!--<input class="radio" type="radio" name="Tipo"/><h2>Docente</h2><br /> -->
+
+                            <div class="col-sm-12 form-group">
+                                <div class="col-sm-4">
+                                </div>
+                                <div class="col-sm-4">
+                                    <button type="submit" value ="10" >Registarme</button>
+                                </div>
+                                <p>&nbsp;</p>
+                                <p>&nbsp;</p>
+                            </div>
+
+
+                            </div>
+                    </div>
+                    </form>
+            </body>
+
+
+        </div>
+
+    </div> <!-- /container -->
+
+
+        <br>
+        <div class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container">
+                <p class="navbar-text">© 2016 Tecnología en Desarrollo de sistemas de información</p>
+            </div><!--container-->
+        </div><!--navbar-->
+
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="static/javascript/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="static/vendors/bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
+        <script src="static/vendors/bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
+
+
+    </div>
+
+</div> <!-- /container -->
+
+<div class="navbar navbar-default navbar-fixed-bottom barras">
+    <div class="container">
+        <p class="navbar-text ">© 2016 secretaria de educacion de anapoima </p>
+
+    </div><!--container-->
+</div><!--navbar-->
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="../static/vendors/bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script><div id="goog-gt-tt" class="goog-tooltip skiptranslate" dir="ltr" style="visibility: hidden; left: 164px; top: 62px; display: none;"><div style="padding: 8px;"><div><div class="logo"><img src="https://www.gstatic.com/images/branding/product/1x/translate_24dp.png" width="20" height="20"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Texto original</h1></div><div class="middle" style="padding: 8px;"><div class="original-text">About</div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Sugiere una traducción mejor</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none; opacity: 0;"></div></div>
+
+
+</body>
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+</html>

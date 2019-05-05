@@ -1,0 +1,125 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Secretaria de educacion de Anapoima</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- styles -->
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/pe-icon-7-stroke.css' %}" rel="stylesheet">
+  </head>
+  <body>
+
+  <!-- WRAPPER -->
+  <div id="wrapper">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="brand" style="font-size: 20px;padding-bottom: 0px;color: #3f822b;">
+        <b>Simdeesea Web</b>
+      </div>
+      <div class="container-fluid">
+        <div class="navbar-btn">
+          <button type="button" class="btn-toggle-fullwidth"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> </button>
+        </div>
+
+        <form class="navbar-form navbar-left" action="busquedas_alumnos.html" method="POST" style="width: 130px;">
+        {% csrf_token %}
+          <div class="input-group">
+            <input type="text" value="" id_buscar name="busqueda" class="form-control" placeholder="Search...">
+            <span class="input-group-btn"><button type="submit" class="btn btn-primary">Buscar</button></span>
+          </div>
+        </form>
+
+        <div id="navbar-menu">
+          <ul class="nav navbar-nav navbar-right" style="margin-right: 0px;">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>{{ user.username }}</span> <i class="fa fa-chevron-down" aria-hidden="true"></i> </a>
+              <ul class="dropdown-menu">
+                <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i> <span>Profile</span></a></li>
+                <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> <span>Logout</span></a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- END NAVBAR -->
+
+    <!-- LEFT SIDEBAR -->
+    <div id="sidebar-nav" class="sidebar">
+      <div class="sidebar-scroll">
+        <nav>
+          <ul class="nav">
+            <li><a href="{% url 'portada' %}" class="active"><i class="fa fa-home" aria-hidden="true"></i> <span>Inicio</span></a></li>
+            <li>
+              <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="fa fa-pencil" aria-hidden="true"></i> <span>Matrículas</span><i class="icon-submenu lnr lnr-chevron-left"></i></a>
+              <div id="subPages" class="collapse ">
+                <ul class="nav">
+                  <li><a href="{% url 'matriculas' %}">Formulario</a></li>
+                  <li><a href="{% url 'configuraMatricula' %}.html">Configuracion</a></li>
+                </ul>
+              </div>
+            </li>
+            <li><a href="{% url 'docentes' %}" class=""><i class="fa fa-user-circle-o" aria-hidden="true"></i> <span>Docentes</span></a></li>
+            <li>
+              <a href="#subPages1" data-toggle="collapse" class="collapsed"><i class="fa fa-university" aria-hidden="true"></i> <span>Estimulos</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+              <div id="subPages1" class="collapse ">
+                <ul class="nav">
+                  <li><a href="{% url 'estimulos' %}">Inscripciones</a></li>
+                  <li><a href="{% url 'listaEntrevista' %}">Entrevistas</a></li>
+                  <li><a href="{% url 'configuracion' %}">Configuracion</a></li>
+                </ul>
+              </div>
+            </li>
+            <li><a href="{% url 'InformeVarios' %}" class=""><i class="fa fa-wrench" aria-hidden="true"></i> <span>Reportes</span></a></li>
+            {% if user.is_superuser == True %}
+            <li><a href="{% url 'registro' %}" class=""><i class="fa fa-user-circle-o" aria-hidden="true"></i> <span>R.Usuarios</span></a></li>
+             {% endif %}
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <!-- END LEFT SIDEBAR -->
+
+
+      <!-- MAIN -->
+    <div class="main">
+      <!-- MAIN CONTENT -->
+      <div class="main-content">
+        <div class="container-fluid">
+          <!-- OVERVIEW -->
+              {%  block content %}
+
+              {% endblock %}
+
+
+    		  	</div>
+    		  </div>
+    		</div>
+
+        <!-- END MAIN -->
+    <div class="clearfix"></div>
+    <footer>
+      <div class="container-fluid">
+        <p class="copyright">&copy; 2017 <a href="#" target="_blank">Secretaria de Educación Anapoima</a>. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+  </div>
+  <!-- END WRAPPER -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/validacion_estimulos.js' %}"</script>
+    <script src="{% static 'js/buscar.js' %}"</script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'scripts/klorofil-common.js' %}"></script>
+  </body>
+</html>

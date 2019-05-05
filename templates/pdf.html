@@ -1,0 +1,199 @@
+<div class="container initial">
+
+    <div class="col-sm-12 form-group">
+        <div class="col-sm-1">
+
+         </div>
+        <div class= "cuerpo">
+            <img src="/static/img/vamos.png" width="100%" style="margin: 0%; padding: 0%">
+         </div>
+
+    </div>
+
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="row">
+            <form class="navbar-form" action="{% url 'busquedas_alumnos' %}" method="get" >
+                <div class="col-sm-12">
+                    <legend>BUSQUEDAS SELECTIVAS ALUMNO</legend>
+                </div>
+                <p>  secretaria de educacion de anapoima aqui podras hacer busquedas por diferentes criterios digita en buscar tu seleccion .  </p>
+                <div class="col-sm-12">
+                    <!--<input id="textinput" name="id" value="{{ Alumno.id }}" type="text" placeholder="" class="form-cont>-->
+                    <div class="col-sm-6 row">
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Nombres</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input id="textinput" name="nombre" value="{{ Alumno.nombres }}" type="text" placeholder="" class="form-control">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Apellidos</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input id="textinput" name="apellido" value="{{ Alumno.apellidos }}" type="text" placeholder="" class="form-control input-md">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">documento</label>
+                            </div>
+                          <div class="col-md-4">
+                          <input id="textinput" name="documento" value="{{ Alumno.documento }}" type="text" placeholder="" class="form-control input-md">
+
+                          </div>
+                        </div>
+
+                         <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Grado</label>
+                            </div>
+                          <div class="col-md-4">
+                          <input id="textinput" name="grado" value="{{ Alumno.grado.grado }}" type="text" placeholder="" class="form-control input-md">
+
+                          </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Genero</label>
+                            </div>
+                          <div class="col-md-4">
+                          <input id="textinput" name="genero" value="{{ Alumno.genero }}" type="text" placeholder="" class="form-control input-md">
+
+                          </div>
+                        </div>
+
+                         <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Puntaje Sisben</label>
+                            </div>
+                          <div class="col-md-4">
+                          <input id="textinput" name="puntaje" value="{{ Alumno.sisben.puntaje }}" type="text" placeholder="" class="form-control input-md">
+
+                          </div>
+                        </div>
+
+                         <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Estrato</label>
+                            </div>
+                          <div class="col-md-4">
+                          <input id="textinput" name="estrato" value="{{ Alumno.estrato.estrato }}" type="text" placeholder="" class="form-control input-md">
+
+                          </div>
+                        </div>
+
+                       <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Trasporte</label>
+                            </div>
+                          <div class="col-md-4">
+                          <input id="textinput" name="trasporte" value="{{ Alumno.transporte }}" type="text" placeholder="" class="form-control input-md">
+
+                          </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6">
+                         <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Direccion</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input id="textinput" name="direccion" value="{{ Alumno.direccion }}" type="text" placeholder="" class="form-control">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">F_Accion</label>
+                            </div>
+                          <div class="col-md-4">
+                          <input id="textinput" name="familias" value="{{ Alumno.familias }}" type="text" placeholder="" class="form-control input-md">
+
+                          </div>
+                        </div>
+
+                         <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Alimentacion</label>
+                            </div>
+                          <div class="col-md-4">
+                          <input id="textinput" name="alimentacion" value="{{ Alumno.alimentacion }}" type="text" placeholder="" class="form-control input-md">
+
+                          </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Desplazado</label>
+                            </div>
+                          <div class="col-md-4">
+                          <input id="textinput" name="desplazado" value="{{ Alumno.desplazado }}" type="text" placeholder="" class="form-control input-md">
+
+                          </div>
+                        </div>
+
+                         <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Contacto</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input id="textinput" name="contacto" value="{{ Alumno.contacto }}" type="text" placeholder="" class="form-control input-md">
+                            </div>
+                        </div>
+
+                         <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">F_Nacimiento</label>
+                            </div>
+                          <div class="col-md-4">
+                          <input id="textinput" name="nacimiento" value="{{ Alumno.nacimiento }}" type="text" placeholder="" class="form-control input-md">
+
+                          </div>
+                        </div>
+
+                         <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Email</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input id="textinput" name="email" value="{{ Alumno.email }}" type="text" placeholder="" class="form-control input-md">
+                            </div>
+                        </div>
+
+                         <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Credo</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input id="textinput" name="credo" value="{{ Alumno.credo }}" type="text" placeholder="" class="form-control input-md">
+                            </div>
+                        </div>
+                         <p>&nbsp;</p>
+                         <p>&nbsp;</p>
+                    </div>
+                </div>
+            </form>
+    </div>
+</div>

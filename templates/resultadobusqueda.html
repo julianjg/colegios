@@ -1,0 +1,68 @@
+{% extends 'plantilla.html' %}
+{% block title%} EDUCACION {%endblock %}
+
+
+
+{%  block content %}
+
+<div class="panel panel-headline">
+    <div class="panel-heading">
+      <h2 class="panel-title"><b>Resultados</b></h2>
+      <p class="panel-subtitle"><b>Resultado de la busqueda</b></p>
+    </div>
+
+    <div class="panel-body">
+      <div class="row">
+
+            <div class="col-sm-12">
+
+              <form class="" action="index.html" method="post">
+
+              <div class="panel">
+                      <div class="panel-body">
+                      <div class="table-responsive">
+
+                      <table class="table table-bordered table-hover table-striped" id="activity">
+                          <thead>
+                              <tr>
+                                  <th>Lista de resultados</th>
+                                  <th>Acciones</th>
+
+                              </tr>
+
+                          </thead>
+                          {% if aspirante %}
+                          <tbody>   {% for row in aspirante %}
+
+                              <tr>
+                                  <td> {{row.id}} | {{row.nombre}} | {{row.apellido}} | {{row.documento}} | {{row.email}}</td>
+                                  <td><a class="btn btn-primary" href="{% url 'editarBusqueda' row.id %}">Editar</a></td>
+
+                              </tr>
+                                {% endfor %}
+                          </tbody>
+                           {% endif %}
+                           {% if alumno %}
+                           <tbody>   {% for row in alumno %}
+
+                               <tr>
+                                   <td> {{row.id}} | {{row.nombres}} | {{row.apellidos}} | {{row.documento}} | {{row.institucion.nombre}}</td>
+                                   <td><a class="btn btn-primary" href="{% url 'editarBusqueda' row.id %}">Editar</a></td>
+
+                               </tr>
+                                 {% endfor %}
+                           </tbody>
+                            {% endif %}
+
+                      </table>
+
+                      </div>
+                      </div>
+                </div>
+                </form>
+          </div>
+  </div>
+</div>
+</div>
+
+{% endblock %}

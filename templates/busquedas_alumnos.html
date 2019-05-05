@@ -1,0 +1,223 @@
+
+{% extends 'plantilla.html' %}
+{% block title%} EDUCACION {%endblock %}
+
+{%  block content %}
+<div class="container initial">
+
+    <div class="col-sm-12 form-group">
+        <div class="col-sm-1">
+
+         </div>
+        <div class= "cuerpo">
+            <img src="/static/img/vamos.png" width="50%" style="margin: 0%; padding: 0%">
+         </div>
+
+    </div>
+
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="row">
+            <form class="navbar-form" action="{% url 'actualiza_alumnos' %}" method="POST" >
+              {% csrf_token %}
+                <div class="col-sm-12">
+                    <legend>BUSQUEDAS SELECTIVAS alum</legend>
+                </div>
+                <p>  secretaria de educacion de anapoima aqui podras hacer busquedas por diferentes criterios nombre, apellido o documento digita en buscar tu seleccion .  </p>
+                <input type="hidden" name="pk" value="{{ alum.id }}">
+                <div class="col-sm-12">
+                    <!--<input id="textinput" name="id" value="{{ alum.id }}" type="text" placeholder="" class="form-cont>-->
+                    <div class="col-sm-6 row">
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Nombres</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input id="textinput" name="nombre" value="{{ alum.nombres }}" type="text" placeholder="" class="form-control">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Apellidos</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input id="textinput" name="apellido" value="{{ alum.apellidos }}" type="text" placeholder="" class="form-control input-md">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">documento</label>
+                            </div>
+                          <div class="col-md-4">
+                          <input id="textinput" name="documento" value="{{ alum.documento }}" type="text" placeholder="" class="form-control input-md">
+
+                          </div>
+                        </div>
+
+                         <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Grado</label>
+                            </div>
+                          <div class="col-md-4">
+                            <input type="hidden" name="grado" value="{{ alum.grado.id }}">
+                          <input id="textinput" name="" value="{{ alum.grado.grado }}" type="text"  class="form-control input-md">
+
+                          </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Genero</label>
+                            </div>
+                          <div class="col-md-4">
+                          <input id="textinput" name="genero" value="{{ alum.genero }}" type="text" placeholder="" class="form-control input-md">
+
+                          </div>
+                        </div>
+
+                         <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Puntaje Sisben</label>
+                            </div>
+                          <div class="col-md-4">
+                          <input id="textinput" name="sisben" value="{{ alum.sisben }}" type="text" placeholder="" class="form-control input-md">
+
+                          </div>
+                        </div>
+
+                         <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Estrato</label>
+                            </div>
+                          <div class="col-md-4">
+                            <select id="grado" name="estrato" type="text" placeholder="placeholder" class="form-control input-md">
+                                <option value="{{ alum.estrato.id }}">{{ alum.estrato.estrato }}</option>
+                                    {% for row in estrato %}
+                                        <option value="{{ row.id }}">{{ row.estrato }}</option>
+                                    {% endfor %}
+                            </select>
+
+
+                          </div>
+                        </div>
+
+                       <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Trasporte</label>
+                            </div>
+                          <div class="col-md-4">
+                          <input id="textinput" name="trasporte" value="{{ alum.transporte }}" type="text" placeholder="" class="form-control input-md">
+
+                          </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6">
+                         <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Direccion</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input id="textinput" name="direccion" value="{{ alum.direccion }}" type="text" placeholder="" class="form-control">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">F_Accion</label>
+                            </div>
+                          <div class="col-md-4">
+                          <input id="textinput" name="familias" value="{{ alum.familias }}" type="text" placeholder="" class="form-control input-md">
+
+                          </div>
+                        </div>
+
+                         <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Alimentacion</label>
+                            </div>
+                          <div class="col-md-4">
+                          <input id="textinput" name="alimentacion" value="{{ alum.alimentacion }}" type="text" placeholder="" class="form-control input-md">
+
+                          </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Desplazado</label>
+                            </div>
+                          <div class="col-md-4">
+                          <input id="textinput" name="desplazado" value="{{ alum.desplazado }}" type="text" placeholder="" class="form-control input-md">
+
+                          </div>
+                        </div>
+
+                         <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Contacto</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input id="textinput" name="contacto" value="{{ alum.contacto }}" type="text" placeholder="" class="form-control input-md">
+                            </div>
+                        </div>
+
+                         <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">F_Nacimiento</label>
+                            </div>
+                          <div class="col-md-4">
+                          <input id="textinput" name="nacimiento" value="{{ alum.nacimiento }}" type="text" placeholder="" class="form-control input-md">
+
+                          </div>
+                        </div>
+
+                         <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Email</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input id="textinput" name="email" value="{{ alum.email }}" type="text" placeholder="" class="form-control input-md">
+                            </div>
+                        </div>
+
+                         <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Credo</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input id="textinput" name="credo" value="{{ alum.credo }}" type="text" placeholder="" class="form-control input-md">
+                            </div>
+                        </div>
+                        <p>&nbsp;</p>
+                        <div class="col-sm-12 form-group">
+                               <div class="col-sm-4">
+                                </div>
+                               <div class="col-sm-4 centered" >
+                                   <button type="submit" value ="10" class="btn btn-primary">Actualizar</button>
+                               </div>
+                        </div>
+
+                         <p>&nbsp;</p>
+                    </div>
+                </div>
+            </form>
+    </div>
+</div>
+
+{% endblock %}

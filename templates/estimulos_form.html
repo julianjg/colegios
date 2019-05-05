@@ -1,0 +1,924 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simdeesea Web</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- styles -->
+    <link href="{% static 'css/one-page-wonder.css' %}" rel="stylesheet">
+    <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
+  </head>
+  <body style="padding-top: 0px;">
+
+          <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#"><b>Simdeesea Web</b></a>
+      </div>
+    </nav>
+
+    <div class="page-content">
+    	<div class="row">
+
+		  <div class="col-md-12">
+		  	<div class="row">
+		  		<div class="content-box-large">
+		  				<div class="panel-heading">
+
+	    <!-- Main component for a primary marketing message or call to action -->
+	    <div class="row">
+	            <form class="form-horizontal" method="post" action="estimulos">
+	             {% csrf_token %}
+	                <div class="col-sm-12">
+	                    <legend><h2>Formulario de inscripción.</h2></legend>
+	                </div>
+                  <div class="col-sm-12">
+
+                    <div class="col-sm-10">
+                      <p><h4>Estímulo económico para estudiantes de educación superior 2018</h4></p>
+                      <p><h6>En mi calidad de postulante al Programa de Estímulos Educativos para Estudiantes de Educación Superior del Municipio de Anapoima – Cundinamarca, identificado (a) con el nombre y el número de documento que aparecen en el formulario subsiguiente, declaro que la información allí diligenciada es veraz y verificable; declaro estar informado de que cualquier falsedad de la información suministrada puede generar sanciones establecidas en la normatividad legal colombiana vigente al respecto, y que cuento con la disponibilidad horaria y voluntad para participar en el programa indicado durante el presente semestre. En constancia firmo en la versión impresa al final del formulario</h6></p>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+
+                  <h3 style="COLOR: #000000; BACKGROUND-COLOR: #8acc8b" ALIGN=center>INFORMACIÓN PERSONAL</h3>
+
+	                <div class="col-sm-12">
+	                    <div class="col-sm-6 row">
+	                        <!-- Text input-->
+	                        <div class="col-sm-12 form-group">
+	                            <div class="col-sm-4">
+	                                <label class="control-label" for="textinput">1 Nombres</label>
+	                            </div>
+	                            <div class="col-sm-8">
+	                                <input id="Nombres" name="1Nombres" onblur="this.value=this.value.toUpperCase()" value="" type="text" placeholder="nombre completo" class="form-control" required>
+	                            </div>
+	                        </div>
+	                    </div>
+                      <div class="col-sm-6">
+
+                          <!-- Text input-->
+                          <div class="col-sm-12 form-group">
+                              <div class="col-sm-4">
+                                  <label class="control-label" for="textinput">2 Apellidos</label>
+                              </div>
+                              <div class="col-sm-8">
+                                  <input id="Apellidos" name="2Apellidos" onblur="this.value=this.value.toUpperCase()" type="text" placeholder="apellidos completos" class="form-control input-md" required>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12">
+	                    <div class="col-sm-6 row">
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for-"Tipo_documento">3 Tipo de documento</label>
+                            </div>
+                          <div class="col-md-4">
+                              <label class="control-label" for="CC">C.C</label>
+                              <input type="radio" name="3Tipo_documento" id="CC" value="CC" onclick="otroDoc()" required>
+                              <label class="control-label" for="T.I">T.I</label>
+                              <input type="radio" name="3Tipo_documento" value="T.I" id="T.I" onclick="otroDoc()"/>
+                              <label class="control-label" for="Otro">Otro</label>
+                              <input type="radio" name="3Tipo_documento" value="otro" id="Tipo_documento_otro" onclick="otroDoc()"/>
+                              <input type="text" name="documentoOtro" style="visibility:hidden" id="documentoOtro" value="" placeholder="¿Cual?" class="form-control"/>
+                          </div>
+                        </div>
+	                    </div>
+                      <div class="col-sm-6">
+                        <!-- Text input-->
+                         <div class="col-sm-12 form-group">
+                            <div class="col-md-4">
+                                <label class="control-label" for="textinput">4 Documento N°</label>
+                            </div>
+                          <div class="col-md-8">
+                            <input id="Documento" onkeypress="return validaDocumento(event);" name="4Documento" value="{{ documento }}" type="text" placeholder="Numero de identificacion" class="form-control" required>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12">
+	                    <div class="col-sm-6 row">
+                        <!-- Text input-->
+                         <div class="col-sm-12 form-group">
+                            <div class="col-md-4">
+                                <label class="control-label" for="textinput">5 Email</label>
+                            </div>
+                          <div class="col-md-8">
+                            <input id="Email" name="5Email"  type="email" placeholder="Correo electronico" class="form-control" required>
+                          </div>
+                        </div>
+	                    </div>
+                      <div class="col-sm-6">
+                        <!-- Text input-->
+                         <div class="col-sm-12 form-group">
+                            <div class="col-md-4">
+                                <label class="control-label" for="textinput">6 Celular</label>
+                            </div>
+                          <div class="col-md-4">
+                              <input id="Celular" onkeypress="return validaCelular(event);" name="6Celular" type="text" placeholder="Numero celular" class="form-control" required>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12">
+	                    <div class="col-sm-6 row">
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-md-4">
+                                <label class="control-label" for="textinput">7 Género</label>
+                            </div>
+                          <div class="col-md-4">
+                              <label class="control-label" for="Hombre">M</label>
+                              <input type="radio" name="7Genero" value="Masculino" id="Hombre" required/>
+                              <label class="control-label" for="Mujer">F</label>
+                              <input type="radio" name="7Genero" value="Femenino" id="Mujer"/>
+                          </div>
+                        </div>
+	                    </div>
+                      <div class="col-sm-6">
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-md-4">
+                                <label class="control-label" for="textinput">8 Edad</label>
+                            </div>
+                            <div class="col-md-3">
+                              <input type="text" id="edad" name="8Edad" onkeypress="return validaEdad(event);"  value="" class="form-control input-md" required/>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="control-label" for="textinput">Años</label>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12">
+	                    <div class="col-sm-6 row">
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">9 Estado civil</label>
+                            </div>
+                          <div class="col-md-8">
+                              <label class="control-label" for="Soltero">Soltero</label>
+                              <input type="radio" name="9Estado_civil" value="Soltero" id="Soltero" required/>
+                              <label class="control-label" for="Casado">Casado</label>
+                              <input type="radio" name="9Estado_civil" value="Casado" id="Casado"/>
+                              <label class="control-label" for="Union_libre">Union libre</label>
+                              <input type="radio" name="9Estado_civil" value="Union libre" id="Union_libre"/>
+                              <label class="control-label" for="Civil_otro">Otro</label>
+                              <input type="radio" name="9Estado_civil" value="Otro" id="Civil_otro"/>
+                          </div>
+                        </div>
+	                    </div>
+                      <div class="col-sm-6">
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">10 ¿Es padre o madre</label><br>
+                                <label class="control-label" for="textinput">cabeza de familia</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="control-label" for="Si">Si</label>
+                                <input type="radio" name="10Cabeza_familia" value="Si" id="hijos_Si" onclick="cuantosHijos()" required/>
+                                <label class="control-label" for="No">No</label>
+                                <input type="radio" name="10Cabeza_familia" value="No"id="No" onclick="cuantosHijos()"/>
+                                <label class="control-label" style="visibility:hidden" id="label_Hijos" for="No">Cuantos hijos?</label>
+                            </div>
+                            <div class="col-md-2">
+                              <input type="number" name="hijos" style="visibility:hidden" value="0" id="hijos" min="0" max="20" class="form-control"/>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12">
+	                    <div class="col-sm-6 row">
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-md-5">
+                                <label class="control-label" for="textinput">11 ¿Pertenece a alguna de</label>
+                                <label class="control-label" for="textinput">las siguientes Poblaciones?</label>
+                            </div>
+                          <div class="col-md-7">
+                              <label class="control-label" for="Desplazado">Desplazado</label>
+                              <input type="radio" name="11pertenencia" value="Desplazado" id="Desplazado" onclick="otroPertenecia()" required/>
+                              <label class="control-label" for="Afrodecendiente">Afrodecendiente</label>
+                              <input type="radio" name="11pertenencia" value="Afrodecendiente" id="Afrodecendiente" onclick="otroPertenecia()"/>
+                              <label class="control-label" for="Indigena">Indígena</label>
+                              <input type="radio" name="11pertenencia" value="Indigena" id="Indigena" onclick="otroPertenecia()"/>
+                              <label class="control-label" for="Reinsertado">Reinsertado</label>
+                              <input type="radio" name="11pertenencia" value="Reinsertado" id="Reinsertado" onclick="otroPertenecia()"/>
+                              <label class="control-label" for="pertenencia_ninguno">Ninguno</label>
+                              <input type="radio" name="11pertenencia" value="Ninguno" id="pertenencia_ninguno" onclick="otroPertenecia()"/>
+                              <label class="control-label" for="Otro_Poblaciones">¿Otro?</label>
+                              <input type="radio" name="11pertenencia" value="Otro" id="Otro_Poblaciones" onclick="otroPertenecia()"/>
+                              <input type="text" name="pertenenciaOtro" style="visibility:hidden" value="" id="pertenenciaOtro" placeholder="¿Cual?" class="form-control"/>
+
+                          </div>
+                        </div>
+	                    </div>
+                      <div class="col-sm-6">
+                        <!-- Text input-->
+                         <div class="col-sm-12 form-group">
+                            <div class="col-md-5">
+                                <label class="control-label" for="textinput">12 Dirección de residencia </label>
+                                <label class="control-label" for="textinput">del estudiante </label>
+                            </div>
+                          <div class="col-md-7">
+                          <input id="Dirección_estudiante" name="12DireEstudiante" onblur="this.value=this.value.toUpperCase()" type="text" placeholder="Dirección del estudiante" class="form-control" required>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12">
+	                    <div class="col-sm-6 row">
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-md-4">
+                                <label class="control-label" for="textinput">12.1 Ciudad o municipio</label>
+                            </div>
+                          <div class="col-md-3">
+                            <select id="Ciudad_estudiante" onchange="selec_vereda1(Ciudad_estudiante)" name="Ciudad_estudiante" type="text" class="form-control input-md" required>
+                                <option value="">Seleccione</option>
+                                    {% for row in municipio %}
+                                        <option value="{{ row.municipio }}">{{ row.municipio }}</option>
+                                    {% endfor %}
+                            </select>
+                          </div>
+                          <div class="col-md-2">
+                              <label class="control-label" style="display:none;" id="label_vereda_estudiante" for="textinput">brr/vereda</label>
+                          </div>
+                          <div class="col-md-3">
+                            <select id="Barrio_vereda_estudiante" style="visibility:hidden" name="Barrio_vereda_estudiante" type="text" class="form-control input-md" required>
+                                <option value="NR">Barrio/vereda</option>
+                                    {% for row in vereda %}
+                                        <option value="{{ row.vereda }}">{{ row.vereda }}</option>
+                                    {% endfor %}
+                            </select>
+                          </div>
+
+                        </div>
+	                    </div>
+                      <div class="col-sm-6">
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">12.2 Ubicacion de la</label><br>
+                                <label class="control-label" for="textinput">residencia del estudiante</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="control-label" for="Urbano">Urbano</label>
+                                <input type="radio" name="Ubicacion_residencia_estudiante" value="Urbano" id="Urbano" required/>
+                                <label class="control-label" for="Rural">Rural</label>
+                                <input type="radio" name="Ubicacion_residencia_estudiante" value="Rural"id="Rural"/>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12">
+	                    <div class="col-sm-6 row">
+                        <!-- Text input-->
+                         <div class="col-sm-12 form-group">
+                            <div class="col-md-4">
+                                <label class="control-label" for="textinput">13 Vivienda</label>
+                            </div>
+                          <div class="col-md-8">
+                              <label class="control-label" for="Propia">Propia</label>
+                              <input type="radio" name="13Vivienda" value="Propia" id="Propia" required/>
+                              <label class="control-label" for="Arrendada">Arrendada</label>
+                              <input type="radio" name="13Vivienda" value="Arrendada" id="Arrendada"/>
+                              <label class="control-label" for="Familiar">Familiar</label>
+                              <input type="radio" name="13Vivienda" value="Familiar" id="Familiar"/>
+                              <label class="control-label" for="Cuidanderos">Cuidanderos</label>
+                              <input type="radio" name="13Vivienda" value="Cuidanderos" id="Cuidanderos">
+                          </div>
+                        </div>
+	                    </div>
+                      <div class="col-sm-6">
+
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12">
+	                    <div class="col-sm-6 row">
+                        <!-- Text input-->
+                         <div class="col-sm-12 form-group">
+                            <div class="col-md-5">
+                                <label class="control-label" for="textinput">14 Estrato socioeconómico:</label>
+                            </div>
+                          <div class="col-md-3">
+                              <input type="text" id="estrato" onkeypress="return validaEstrato(event);" name="14Estrato"  value="" class="form-control input-md" required>
+                          </div>
+                        </div>
+	                    </div>
+                      <div class="col-sm-6">
+
+                        <!-- Text input-->
+                         <div class="col-sm-12 form-group">
+                            <div class="col-md-4">
+                                <label class="control-label" for="textinput">15 Puntaje SISBEN</label>
+                            </div>
+                          <div class="col-md-3">
+                            <INPUT id="sisben" onkeypress="return validaSisben(event)" type="text" name="15SISBEN" class="form-control input-md" placeholder="00.00" required>
+
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12">
+                    <h3 style="COLOR: #000000; BACKGROUND-COLOR: #8acc8b" ALIGN=center>INFORMACIÓN FAMILIAR</h3>
+                  <div class="col-sm-12">
+
+                        <!-- Text input-->
+                         <div class="col-sm-12 form-group">
+                            <div class="col-md-4">
+                                <label class="control-label" for="textinput">16 ¿Cuántas personas componen su </label>
+                                <label class="control-label" for="textinput">núcleo familiar? sin incluirse usted.</label>
+                            </div>
+                          <div class="col-md-1">
+                              <input type="text" id="Nucleo" onkeypress="return validaNucleo(event);" value="" name="16Nucleo_familiar" class="form-control input-md" required>
+                          </div>
+                        </div>
+                  </div>
+                    <div class="col-md-12">
+
+                    <div class="col-md-1">
+
+                    </div>
+                    <div class="col-md-10">
+                        <div class="" style="visibility:hidden" id="1">
+                        <input type="text" placeholder="NOMBRE Y APELLIDO" readonly="readonly"><input type="text" placeholder="PARENTESCO"  readonly="readonly"><input type="text" placeholder="EDAD"  readonly="readonly"><input type="text" placeholder="OCUPACION"  readonly="readonly"><input type="text" placeholder="CELULAR"  readonly="readonly"><br>
+                        </div>
+                        <div class="">
+                        <input type="text" name="parentesco1" placeholder="digite nombre y apellidos"><input type="text" name="parentesco1" id="2" placeholder="digite parentesco"><input type="text" name="parentesco1" id="3" placeholder="digite edad"><input type="text" name="parentesco1" id="4" placeholder="digite ocupacion"><input type="text" name="parentesco1" id="5" placeholder="digite celular"><br>
+                        </div>
+
+                        <input type="text" name="parentesco2" id="6" placeholder="digite nombre y apellidos"><input type="text" name="parentesco2" id="7" placeholder="digite parentesco"><input type="text" name="parentesco2" id="8" placeholder="digite edad"><input type="text" name="parentesco2" id="9" placeholder="digite ocupacion"><input type="text" name="parentesco2" id="10" placeholder="digite celular"><br>
+                        <input type="text" name="parentesco3" id="11" placeholder="digite nombre y apellidos"><input type="text" name="parentesco3" id="12" placeholder="digite parentesco"><input type="text" name="parentesco3" id="13" placeholder="digite edad"><input type="text" name="parentesco3" id="14" placeholder="digite ocupacion"><input type="text" name="pCelular3" id="15" placeholder="digite celular"><br>
+                        <input type="text" name="parentesco4" id="16" placeholder="digite nombre y apellidos"><input type="text" name="parentesco4" id="17" placeholder="digite parentesco"><input type="text" name="parentesco4" id="18" placeholder="digite edad"><input type="text" name="parentesco4" id="19" placeholder="digite ocupacion"><input type="text" name="parentesco4" id="20" placeholder="digite celular"><br>
+                        <input type="text" name="parentesco5" id="21" placeholder="digite nombre y apellidos"><input type="text" name="parentesco5" id="22" placeholder="digite parentesco"><input type="text" name="parentesco5" id="23" placeholder="digite edad"><input type="text" name="parentesco5" id="24" placeholder="digite ocupacion"><input type="text" name="parentesco5" id="25" placeholder="digite celular"><br>
+                        <input type="text" name="parentesco6" id="26" placeholder="digite nombre y apellidos"><input type="text" name="parentesco6" id="27" placeholder="digite parentesco"><input type="text" name="parentesco6" id="28" placeholder="digite edad"><input type="text" name="parentesco6" id="28" placeholder="digite ocupacion"><input type="text" name="parentesco6" id="30" placeholder="digite celular"><br>
+                        <input type="text" name="parentesco7" id="31" placeholder="digite nombre y apellidos"><input type="text" name="parentesco7" id="32" placeholder="digite parentesco"><input type="text" name="parentesco7" id="33" placeholder="digite edad"><input type="text" name="parentesco7" id="34" placeholder="digite ocupacion"><input type="text" name="parentesco7" id="35" placeholder="digite celular"><br>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+
+                    &nbsp;&nbsp;
+
+                  </div>
+
+                  <div class="col-sm-12">
+	                    <div class="col-sm-6 row">
+                        <!-- Text input-->
+                         <div class="col-sm-12 form-group">
+                            <div class="col-md-5">
+                                <label class="control-label" for="textinput">17 Dirección residencia de los</label>
+                                <label class="control-label" for="textinput">padres/ persona de contacto</label>
+                            </div>
+                          <div class="col-md-7">
+                          <input id="Dirección_padres" name="17DirePadres" onblur="this.value=this.value.toUpperCase()" type="text" placeholder="Dirección de los padres" class="form-control" >
+                          </div>
+                        </div>
+	                    </div>
+                      <div class="col-sm-6">
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-md-4">
+                                <label class="control-label" for="textinput">17.1 Ciudad o municipio</label>
+                            </div>
+                          <div class="col-md-3">
+                            <select id="Ciudad_padres" onchange="selec_vereda(Ciudad_padres)" name="Ciudad_padres" type="text" class="form-control input-md">
+                                <option value="NR">Seleccione</option>
+                                    {% for row in municipio %}
+                                        <option value="{{ row.municipio }}">{{ row.municipio }}</option>
+                                    {% endfor %}
+                            </select>
+                          </div>
+                          <div class="col-md-2">
+                              <label class="control-label" style="display:none;" id="label_vereda_padres" for="textinput">brr/vereda</label>
+                          </div>
+                          <div class="col-md-3">
+                            <select id="Barrio_vereda_padres" style="visibility:hidden" name="Barrio_vereda_padres" type="text" class="form-control input-md">
+                                <option value="NR">Barrio/vereda</option>
+                                    {% for row in vereda %}
+                                        <option value="{{ row.vereda }}">{{ row.vereda }}</option>
+                                    {% endfor %}
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12">
+                      <div class="col-sm-6 row">
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-6">
+                                <label class="control-label" for="textinput">17.2 Ubicacion de residencia de </label><br>
+                                <label class="control-label" for="textinput">los padres/ persona de contacto</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="control-label" id="label_urbano" for="Urbano_padres">Urbano</label>
+                                <input type="radio" name="Ubicacion_padres" value="Urbano" id="Urbano_padres" required/>
+                                <label class="control-label" id="label_rural" for="Rural">Rural</label>
+                                <input type="radio" name="Ubicacion_padres" value="Rural"id="Rural_padres"/>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-md-4">
+                                <label class="control-label" for="textinput">18 Servicios públicos</label>
+                            </div>
+                          <div class="col-md-8">
+                              <label class="control-label" for="Acueducto">Acueducto</label>
+                              <input type="checkbox" name="18servicios_publicos[]"  value="Acueducto" id="Acueducto" onclick="uncheckRadio(this)"/>
+                              <label class="control-label" for="Alcantarillado">Alcantarillado</label>
+                              <input type="checkbox" name="18servicios_publicos[]" value="Alcantarillado" id="Alcantarillado" onclick="uncheckRadio1(this)"/>
+                              <label class="control-label" for="Energia">Energia</label>
+                              <input type="checkbox" name="18servicios_publicos[]" value="Energia" id="Energia" onclick="uncheckRadio2(this)"/>
+                              <label class="control-label" for="Aseo">Aseo</label>
+                              <input type="checkbox" name="18servicios_publicos[]" value="Aseo" id="Aseo" onclick="uncheckRadio3(this)"/>
+                              <label class="control-label" for="Gas">Gas</label>
+                              <input type="checkbox" name="18servicios_publicos[]" value="Gas" id="Gas" onclick="uncheckRadio4(this)"/>
+                              <label class="control-label" for="Servicios_ninguno">Ninguno</label>
+                              <input type="checkbox" name="18servicios_publicos[]" value="Ninguno" id="Servicios_ninguno" onclick="uncheckRadio5(this)"/>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12">
+	                    <div class="col-sm-6 row">
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-md-5">
+                                <label class="control-label" for="textinput">19 ¿De quién depende </label><br>
+                                <label class="control-label" for="textinput"> económicamente?</label>
+                            </div>
+                          <div class="col-md-7">
+                              <label class="control-label" for="Papa">Papa</label>
+                              <input type="radio" name="19dependencia_economica"  value="Papa" id="Papa" required/>
+                              <label class="control-label" for="Mama">Mama</label>
+                              <input type="radio" name="19dependencia_economica" value="Mama" id="Mama"/>
+                              <label class="control-label" for="Ambos">Ambos</label>
+                              <input type="radio" name="19dependencia_economica" value="Ambos" id="Ambos"/>
+                              <label class="control-label" for="conyugue">conyugue</label>
+                              <input type="radio" name="19dependencia_economica" value="conyugue" id="conyugue"/>
+                              <label class="control-label" for="independiente">independiente</label>
+                              <input type="radio" name="19dependencia_economica" value="independiente" id="independiente"/>
+                              <label class="control-label" for="otro familiar">otro familiar</label>
+                              <input type="radio" name="19dependencia_economica" value="otro familiar" id="otro familiar"/>
+                              <input type="text" name="dependenciaOtro" style="visibility:hidden" value="" id="dependenciaOtro" placeholder="¿Cual?" class="form-control"/>
+                          </div>
+                        </div>
+	                    </div>
+                      <div class="col-sm-6">
+                        <!-- Text input-->
+                         <div class="col-sm-12 form-group">
+                            <div class="col-md-5">
+                                <label class="control-label" for="textinput">20 Ingresos mensuales del</label><br>
+                                <label class="control-label" for="textinput">nucleo familiar $</label>
+                            </div>
+                          <div class="col-md-7">
+                            <input id="inputNumero" name="20Ingresos_familia" type="text" onkeypress="return validaIngresos(event);" placeholder="Ingresos familiares" class="form-control" required>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12">
+	                    <div class="col-sm-6 row">
+
+                      </div>
+	                    </div>
+                      <div class="col-sm-6">
+
+
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12">
+                    <h3 style="COLOR: #000000; BACKGROUND-COLOR: #8acc8b" ALIGN=center>INFORMACIÓN ACADÉMICA</h3>
+                  <div class="col-sm-12">
+
+	                    <div class="col-sm-6 row">
+                        <!-- Text input-->
+                         <div class="col-sm-12 form-group">
+                            <div class="col-md-4">
+                                <label class="control-label" for="textinput">21 Nombre del colegio</label>
+                                <label class="control-label" for="textinput">del que se graduó</label>
+                            </div>
+                          <div class="col-md-8">
+                          <select id="Colegio"  name="21colegio" type="text" class="form-control input-md" required>
+                              <option value="">Colegios</option>
+                                  {% for row in colegio %}
+                                      <option value="{{ row.colegio }}">{{ row.colegio }}</option>
+                                  {% endfor %}
+                          </select>
+                          </div>
+                        </div>
+	                    </div>
+                      <div class="col-sm-6">
+                        <!-- Text input-->
+                         <div class="col-sm-12 form-group">
+                            <div class="col-md-4">
+                                <label class="control-label" for="textinput">22 ¿El colegio del que</label>
+                                <label class="control-label" for="textinput">se graduó es?</label>
+                            </div>
+                          <div class="col-md-2">
+                            <label class="control-label" for="Oficial">Oficial</label>
+                            <input type="radio" name="22Oficial_privado" value="Oficial" id="Oficial" required/>
+                          </div>
+                          <div class="col-md-3">
+                            <label class="control-label" for="Privado">Privado</label>
+                            <input type="radio" name="22Oficial_privado" value="Privado" id="Privado"/>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12">
+
+	                    <div class="col-sm-6 row">
+                        <!-- Text input-->
+                         <div class="col-sm-12 form-group">
+                            <div class="col-md-5">
+                                <label class="control-label" for="textinput">23 Año en que se graduó</label>
+                            </div>
+                          <div class="col-md-4">
+                          <input type="number" name="23ano_terminacion" onkeypress="return caracter(event)"; min="1990" max="2025" step="1" value="0000" class="form-control input-md" required>
+                          </div>
+                        </div>
+	                    </div>
+                      <div class="col-sm-6">
+                        <!-- Text input-->
+                         <div class="col-sm-12 form-group">
+                            <div class="col-md-4">
+                                <label class="control-label" for="textinput">23.1 Acta de grado n°</label>
+                            </div>
+                          <div class="col-md-3">
+                          <input type="text" name="actaGrado" onkeypress="return caracter(event)"; value="0" class="form-control input-md">
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12">
+                     <h3 style="COLOR: #000000; BACKGROUND-COLOR: #8acc8b" ALIGN=center>INFORMACIÓN DE LA INSTITUCIÓN DE EDUCACIÓN SUPERIOR (IES)</h3>
+	                    <div class="col-sm-6 row">
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-md-5">
+                                <label class="control-label" for="textinput">24 Institución de Educación</label><br>
+                                <label class="control-label" for="textinput">superior(IES)</label>
+                            </div>
+                          <div class="col-md-7">
+                            <select id="Universidad" required onchange="seleccionSENA(Universidad)" name="24Universidad" type="text" class="form-control input-md">
+                                <option value="">Seleccione</option>
+                                    {% for u in universidad %}
+                                        <option value="{{ u.universidad }}">{{ u.universidad }}</option>
+                                    {% endfor %}
+                            </select>
+                            <select id="centrosSena"  name="centrosSena" style="visibility:hidden" type="text" class="form-control input-md" required>
+                                <option value="NR">Seleccione Centro SENA</option>
+                                    {% for c in centrosSena %}
+                                        <option value="{{ c.centroSena }}">{{ c.centroSena }}</option>
+                                    {% endfor %}
+                            </select>
+                          </div>
+                        </div>
+	                    </div>
+                      <div class="col-sm-6">
+                      <!-- Text input-->
+                       <div class="col-sm-12 form-group">
+                          <div class="col-md-4">
+                              <label class="control-label" for="textinput">25 Sede(IES)</label>
+                          </div>
+                        <div class="col-md-8">
+                        <select id="Sede"  name="25Sede" type="text" class="form-control input-md" required>
+                            <option value="">Seleccione</option>
+                                {% for s in sedes %}
+                                    <option value="{{ s.sede }}">{{ s.sede }}</option>
+                                {% endfor %}
+                        </select>
+                        </div>
+                      </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12">
+
+	                    <div class="col-sm-6 row">
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-md-5">
+                                <label class="control-label" for="textinput">26 ¿La (IES) cuenta con</label><br>
+                                <label class="control-label" for="textinput">acreditación de alta calidad?	</label>
+                            </div>
+                          <div class="col-md-7">
+                              <label class="control-label" for="Acreditación_si">Si</label>
+                              <input type="radio" name="26AcreditaUniversidad" value="Si" id="Acreditación_si" required/>
+                              <label class="control-label" for="Acreditación_no">No</label>
+                              <input type="radio" name="26AcreditaUniversidad" value="No" id="Acreditación_no"/>
+                              <label class="control-label" for="Acreditación_curso">En curso</label>
+                              <input type="radio" name="26AcreditaUniversidad" value="En curso" id="Acreditación_curso"/>
+                              <label class="control-label" for="Acreditación_nose">No se</label>
+                              <input type="radio" name="26AcreditaUniversidad" value="No se" id="Acreditación_nose"/>
+                          </div>
+                        </div>
+	                    </div>
+                      <div class="col-sm-6">
+                        <!-- Text input-->
+                         <div class="col-sm-12 form-group">
+                            <div class="col-md-4">
+                                <label class="control-label" for="textinput">27 Carrera que cursa</label>
+                            </div>
+                          <div class="col-md-8">
+                          <input id="Carrera" name="27Carrera" onblur="this.value=this.value.toUpperCase()"  type="text" placeholder="Carrera que cursa actualmente" class="form-control" required>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12">
+
+	                    <div class="col-sm-6 row">
+
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-md-4">
+                                <label class="control-label" for="textinput">27.1 ¿La carrera que</label><br>
+                                <label class="control-label" for="textinput">estudia es?</label><br>
+                            </div>
+                          <div class="col-md-7">
+                              <label class="control-label" for="Tecnica">Técnica</label>
+                              <input type="radio" name="tecnicaTecnologica" value="Tecnica" id="Tecnica" required/>
+                              <label class="control-label" for="Tecnologica">Técnologica</label>
+                              <input type="radio" name="tecnicaTecnologica" value="Tecnologica" id="Tecnologica"/>
+                              <label class="control-label" for="Profesional">Profesional</label>
+                              <input type="radio" name="tecnicaTecnologica" value="Profesional" id="Profesional"/>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-sm-6">
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-md-5">
+                                <label class="control-label" for="textinput">28 ¿La carrera cuenta con</label><br>
+                                <label class="control-label" for="textinput">acreditación de alta calidad?	</label>
+                            </div>
+                          <div class="col-md-7">
+                              <label class="control-label" for="Acreditación_si">Si</label>
+                              <input type="radio" name="28AcreditaCarrera" value="Si" id="Acreditación_caarrera_si" required/>
+                              <label class="control-label" for="Acreditación_no">No</label>
+                              <input type="radio" name="28AcreditaCarrera" value="No" id="Acreditación_caarrera_no"/>
+                              <label class="control-label" for="Acreditación_curso">En curso</label>
+                              <input type="radio" name="28AcreditaCarrera" value="En curso" id="Acreditación_caarrera_encurso"/>
+                              <label class="control-label" for="Acreditación_nose">No se</label>
+                              <input type="radio" name="28AcreditaCarrera" value="No se" id="Acreditación_nose"/>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12">
+
+	                    <div class="col-sm-6 row">
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-md-4">
+                                <label class="control-label" for="textinput">29 ¿Estudia por?</label><br>
+                            </div>
+                          <div class="col-md-8">
+                              <label class="control-label" for="Años">Años</label>
+                              <input type="radio" name="29ciclo_educacion" value="Años" id="Años" required/>
+                              <label class="control-label" for="Semestre">Semestre</label>
+                              <input type="radio" name="29ciclo_educacion" value="Semestre" id="Semestre"/>
+                              <label class="control-label" for="Trimestre">Trimestre</label>
+                              <input type="radio" name="29ciclo_educacion" value="Trimestre" id="Trimestre"/>
+                          </div>
+                        </div>
+	                    </div>
+                      <div class="col-sm-6">
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-md-4">
+                                <label class="control-label" for="textinput">29.1 ¿Que año semestre</label><br>
+                                <label class="control-label" for="textinput">o trimestre cursa?</label><br>
+                            </div>
+                          <div class="col-md-2">
+                              <input type="text" name="semestreEnCurso" onkeypress="return validaSemestre(event);" id="semestreEnCurso" class="form-control" required/>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12">
+
+	                    <div class="col-sm-6 row">
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-md-4">
+                                <label class="control-label" for="textinput">30 Modalidad de estudio</label><br>
+                            </div>
+                          <div class="col-md-8">
+                              <label class="control-label" for="Presencial">Presencial</label>
+                              <input type="radio" name="30Modalidad" value="Presencial" id="Presencial" onclick="otroModalidad()" required/>
+                              <label class="control-label" for="Semipresencial">Semipresencial</label>
+                              <input type="radio" name="30Modalidad" value="Semipresencial" id="Semipresencial" onclick="otroModalidad()"/>
+                              <label class="control-label" for="Virtual">Virtual</label>
+                              <input type="radio" name="30Modalidad" value="Virtual" id="Virtual" onclick="otroModalidad()"/>
+                              <label class="control-label" style="visibility:hidden" for="Otro">Otro</label>
+                              <input type="radio" name="30Modalidad" style="visibility:hidden" value="modalidad_otro" id="modalidad_otro" onclick="otroModalidad()"/>
+                              <input type="text" name="modalidadOtro" style="visibility:hidden" id="modalidadOtro" value="" placeholder="¿Cual?" class="form-control"/>
+                          </div>
+                        </div>
+	                    </div>
+                      <div class="col-sm-6">
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-md-5">
+                                <label class="control-label" for="textinput">31 ¿Su proceso formativo</label><br>
+                                <label class="control-label" for="textinput">es por ciclos propedéuticos?</label>
+                            </div>
+                          <div class="col-md-7">
+                              <label class="control-label" for="Acreditación_si">Si</label>
+                              <input type="radio" name="31propedeuticos" value="Si" id="Acreditación_si" required/>
+                              <label class="control-label" for="Acreditación_no">No</label>
+                              <input type="radio" name="31propedeuticos" value="No" id="Acreditación_no"/>
+                              <!--<label class="control-label" for="Otro">Otro</label>
+                              <input type="radio" name="31propedeuticos" value="otro" id="propedeuticos_otro"  onclick="otroPropedeutico()"/>-->
+                              <input type="text" name="propedeuticoOtro" style="visibility:hidden" id="propedeuticoOtro" value="" placeholder="¿Cual?" class="form-control"/>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12">
+
+                      <div class="col-sm-6 row">
+                        <!-- Text input-->
+                         <div class="col-sm-12 form-group">
+                            <div class="col-md-6">
+                                <label class="control-label" for="textinput">32 Valor base de la matrícula del </label><br>
+                                <label class="control-label" for="textinput">semestre actual(sin carnet, ni seguro)</label>
+                            </div>
+                          <div class="col-md-6">
+                            <input id="valorMatricula" value=""  name="32Valor_matricula" onkeypress="return validaMatricula(event);" type="text" class="form-control" placeholder="$" required>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-md-4">
+                                <label class="control-label" for="textinput">33 ¿Es beneficiaro de</label><br>
+                                <label class="control-label" for="textinput">programas como?</label>
+                            </div>
+                          <div class="col-md-8">
+                              <label class="control-label" for="4x1">4x1</label>
+                              <input type="radio" name="33beneficiario_programas" value="4x1" id="4x1" onclick="otroPrograma()" required/>
+                              <label class="control-label" for="4x1">Ser pilo paga</label>
+                              <input type="radio" name="33beneficiario_programas" value="pilo_paga" id="pilo_paga" onclick="otroPrograma()"/>
+                              <label class="control-label" for="beneficiaro_programas_otro">Otro</label>
+                              <input type="radio" name="33beneficiario_programas" value="otro" id="beneficiaro_programas_otro" onclick="otroPrograma()"/>
+                              <label class="control-label" for="Beneficiario_ninguno">Ninguno</label>
+                              <input type="radio" name="33beneficiario_programas" value="Ninguno" id="Beneficiario_ninguno" onclick="otroPrograma()"/>
+                              <input type="text" name="programaOtro" style="visibility:hidden" id="programaOtro" value="" placeholder="¿Cual?" class="form-control"/>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-12">
+
+                    <div class="col-sm-6 row">
+                     <!-- Text input-->
+                      <div class="col-sm-12 form-group">
+                          <div class="col-md-6">
+                              <label class="control-label" for="textinput">34 ¿Ha sido beneficiario de este</label><br>
+                              <label class="control-label" for="textinput">programa: Estímulos Educativos?</label>
+                          </div>
+                        <div class="col-md-4">
+                            <label class="control-label" for="incentivo_si">Si</label>
+                            <input type="radio" name="34incentivo_educativo" value="Si" id="incentivo_si" onclick="incentivoCuantas()" required/>
+                            <label class="control-label" for="incentivo_no">No</label>
+                            <input type="radio" name="34incentivo_educativo" value="No" id="incentivo_no"  onclick="incentivoCuantas()"/>
+                            <label class="control-label" id="label_veces" style="visibility:hidden" >Cuantas veces</label>
+
+                        </div>
+                        <div class="col-md-2">
+                          <input type="number" name="cuantasVeces" style="visibility:hidden" min="0" value="0" id="cuantasVeces" class="form-control"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <!-- Text input-->
+                      <div class="col-sm-12 form-group">
+                          <div class="col-md-5">
+                              <label class="control-label" for="textinput">35 ¿Practica actividades</label><br>
+                              <label class="control-label" for="textinput">Extra-académicas certificadas?</label>
+                          </div>
+                        <div class="col-md-7">
+                            <label class="control-label" for="extra_academicas_si">Si</label>
+                            <input type="radio" name="35extra-academicas" value="si" id="extra_academicas_si" onclick="extraAcademicas()" required/>
+                            <label class="control-label" for="extra_academicas_no">No</label>
+                            <input type="radio" name="35extra-academicas" value="No" id="extra_academicas_no" onclick="extraAcademicas()"/>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12">
+
+                    <div class="col-sm-6 row">
+                      <!-- Text input-->
+                      <div class="col-sm-12 form-group" style="display:none" id="lepagan">
+                          <div class="col-md-6">
+                              <label class="control-label" for="textinput">36 ¿Le pagan por hacerlas</label><br>
+                          </div>
+                        <div class="col-md-6">
+                            <label class="control-label" for="extra_academicas_si">Si</label>
+                            <input type="radio" name="36extra_academicas_pagan" value="si" id="extra_academicas_pagan_si"/>
+                            <label class="control-label" id"lepagan2" for="extra_academicas_no">No</label>
+                            <input type="radio" name="36extra_academicas_pagan" value="no" id="extra_academicas_pagan_no"/>
+                            <input type="radio" name="36extra_academicas_pagan" style="visibility:hidden" value="NR" id="extra_academicas_pagan_NR" checked/>
+                        </div>
+                      </div>
+                      <div class="col-sm-12 form-group" >
+                          <div class="col-md-6">
+
+                          </div>
+                        <div class="col-md-6">
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                      <div class="col-sm-12">
+
+                        <div class="col-sm-6 row">
+
+                        </div>
+                        <div class="col-sm-6">
+
+                        </div>
+                      </div>
+
+                      <div class="col-sm-12 form-group">
+                              <div class="col-sm-5">
+                               </div>
+                              <div class="col-sm-4 centered" >
+                                  <button type="submit" class="btn btn-primary">registrarse </button>
+                               </div>
+                      </div>
+
+	                    </div>
+	                </div>
+	            </form>
+	    </div>
+	</div>
+	</div>
+</div>
+
+		  	</div>
+		  </div>
+		</div>
+    </div>
+
+<div class="col-sm-12 col-md-12 col-lg-12"><br><br></div>
+
+    <footer >
+         <div class="container">
+
+            <div class="copy text-center">
+               <p class="m-0 text-center text-white"> &copy;2017 Secretaria de Educación Anapoima. Todos los derechos reservados.</p>
+            </div>
+
+         </div>
+      </footer>
+
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/js/validacion_estimulos.js" type="text/javascript"></script>
+    <script src="/static/js/editarFormulario.js" type="text/javascript"></script>
+    <script src="/static/js/custom.js"></script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+{% extends 'plantilla.html' %}
+{% block title%} EDUCACION {%endblock %}
+
+{%  block content %}
+<div class="panel panel-headline">
+    <div class="panel-heading">
+      <h2 class="panel-title"><b>Municipio</b></h2>
+    </div>
+
+    <div class="panel-body">
+      <div class="row">
+
+		<form method="POST" action="eliminarMunicipio">
+		{% csrf_token %}
+		<div class="col-sm-12 form-group">
+		    <div class="col-sm-3">
+		        <label class="control-label" for="textinput">Eliminar Municipio</label>
+		    </div>
+		    <div class="col-sm-6">
+		        <input id="textinput" name="municipio" value="{{ municipio.municipio }}" type="text" class="form-control" readonly>
+		    </div>
+		</div>
+
+		<button type="submit" value ="10" class="btn btn-primary">Eliminar </button>
+		<a class="btn btn-default" href="{% url 'municipios' %}">Cancelar</a>
+		</form>
+	</div>
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,463 @@
+<div class="col-sm-12">
+    <!-- Text input-->
+    <div class="col-sm-12 form-group">
+        <div class="col-sm-12">
+          <div align="right"><img src="..\static\img\Anapoima.jpg"></div>
+        </div>
+        <div class="col-sm-12 form-group">
+            <h1>Municipio de Anapoima Secretaría para el Desarrollo Social - Area de educación</h1>
+        </div>
+    </div>
+</div>
+<div class="col-sm-12">
+    <!-- Text input-->
+    <div class="col-sm-12 form-group">
+        <div class="col-sm-4">
+              <p><h7>En mi calidad de postulante al Programa de Estímulos Educativos para Estudiantes de Educación Superior del Municipio de Anapoima – Cundinamarca, identificado (a) con el nombre y el número de documento que aparecen en el formulario subsiguiente, declaro que la información allí diligenciada es veraz y verificable; declaro estar informado de que cualquier falsedad de la información suministrada puede generar sanciones establecidas en la normatividad legar colombiana vigente al respecto, y que cuento con la disponibilidad horaria y voluntad para participar en el programa indicado durante el presente semestre. En constancia firmo en la versión impresa al final del formulario</h7></p>
+        </div>
+    </div>
+</div>
+
+<h3 style="COLOR: #000000; BACKGROUND-COLOR: #6f90b8" ALIGN=center>INFORMACIÓN PERSONAL</h3>
+
+<div class="col-sm-12">
+    <div class="col-sm-6 row">
+        <!-- Text input-->
+        <div class="col-sm-12 form-group">
+            <div class="col-sm-4">
+                <label class="control-label" for="textinput">1 Nombres: {{ data.nombre }}</label>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+
+        <!-- Text input-->
+        <div class="col-sm-12 form-group">
+
+            <div class="col-sm-4">
+              <label class="control-label" for="textinput">2 Apellidos: {{ data.apellido }} </label>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-12">
+    <div class="col-sm-6 row">
+      <!-- Text input-->
+      <div class="col-sm-12 form-group">
+          <div class="col-sm-4">
+              <label class="control-label" for-"Tipo_documento">3 Tipo de documento: {{ data.tipoDocumento }}</label>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <!-- Text input-->
+       <div class="col-sm-12 form-group">
+          <div class="col-md-4">
+              <label class="control-label" for="textinput">4 Documento N°: {{ data.documento }}</label>
+          </div>
+      </div>
+    </div>
+</div>
+
+<div class="col-sm-12">
+    <div class="col-sm-6 row">
+      <!-- Text input-->
+       <div class="col-sm-12 form-group">
+          <div class="col-md-4">
+              <label class="control-label" for="textinput">5 Email: {{ data.email}}</label>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <!-- Text input-->
+       <div class="col-sm-12 form-group">
+          <div class="col-md-4">
+              <label class="control-label" for="textinput">6 Celular: {{ data.celular }}</label>
+          </div>
+      </div>
+    </div>
+</div>
+
+<div class="col-sm-12">
+    <div class="col-sm-6 row">
+      <!-- Text input-->
+      <div class="col-sm-12 form-group">
+          <div class="col-md-4">
+              <label class="control-label" for="textinput">7 Género: {{ data.genero }}</label>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <!-- Text input-->
+      <div class="col-sm-12 form-group">
+          <div class="col-md-4">
+              <label class="control-label" for="textinput">8 Edad: {{ data.edad }}</label>
+          </div>
+      </div>
+    </div>
+</div>
+
+<div class="col-sm-12">
+    <div class="col-sm-6 row">
+      <!-- Text input-->
+      <div class="col-sm-12 form-group">
+          <div class="col-sm-4">
+              <label class="control-label" for="textinput">9 Estado civil: {{ data.estadoCivil }}</label>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <!-- Text input-->
+      <div class="col-sm-12 form-group">
+          <div class="col-sm-4">
+              <label class="control-label" for="textinput">10 ¿Es padre o madre cabeza de familia: {{ data.cabezaFamilia }}</label><br>
+          </div>
+      </div>
+    </div>
+</div>
+
+<div class="col-sm-12">
+    <div class="col-sm-6 row">
+      <!-- Text input-->
+      <div class="col-sm-12 form-group">
+          <div class="col-md-5">
+              <label class="control-label" for="textinput">11 ¿Pertenece a alguna de las siguientes Poblaciones?: {{ data.pertenencia }}</label>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <!-- Text input-->
+       <div class="col-sm-12 form-group">
+          <div class="col-md-4">
+              <label class="control-label" for="textinput">12 Dirección de residencia del estudiante: {{ data.direccionEstudiante }} </label>
+          </div>
+      </div>
+    </div>
+</div>
+
+<div class="col-sm-12">
+    <div class="col-sm-6 row">
+      <!-- Text input-->
+      <div class="col-sm-12 form-group">
+          <div class="col-md-4">
+              <label class="control-label" for="textinput">12.1 Ciudad o municipio: {{data.ciudadEstudiante}}</label>
+          </div>
+        <div class="col-md-2">
+            <label class="control-label"  id="label_vereda_estudiante" for="textinput">barrio o vereda: {{data.barrioEstudiante}}</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <!-- Text input-->
+      <div class="col-sm-12 form-group">
+          <div class="col-sm-4">
+              <label class="control-label" for="textinput">12.2 Ubicacion de la residencia del estudiante: {{data.ubicacionEstudiante}}</label><br>
+          </div>
+      </div>
+    </div>
+</div>
+
+<div class="col-sm-12">
+    <div class="col-sm-6 row">
+      <!-- Text input-->
+       <div class="col-sm-12 form-group">
+          <div class="col-md-4">
+              <label class="control-label" for="textinput">13 Vivienda: {{data.vivienda}}</label>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+
+    </div>
+</div>
+
+<div class="col-sm-12">
+    <div class="col-sm-6 row">
+      <!-- Text input-->
+       <div class="col-sm-12 form-group">
+          <div class="col-md-5">
+              <label class="control-label" for="textinput">14 Estrato socioeconómico: {{data.estrato}}</label>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+
+      <!-- Text input-->
+       <div class="col-sm-12 form-group">
+          <div class="col-md-4">
+              <label class="control-label" for="textinput">15 Puntaje SISBEN: {{data.sisben}}</label>
+          </div>
+      </div>
+    </div>
+</div>
+
+<div class="col-sm-12">
+  <h3 style="COLOR: #000000; BACKGROUND-COLOR: #6f90b8" ALIGN=center>INFORMACIÓN FAMILIAR</h3>
+<div class="col-sm-12">
+
+      <!-- Text input-->
+       <div class="col-sm-12 form-group">
+          <div class="col-md-4">
+              <label class="control-label" for="textinput">16 ¿Cuántas personas componen su núcleo faliliar?: {{data.nucleoFamiliar}}</label>
+          </div>
+</div>
+<div class="col-sm-12">
+    <div class="col-sm-6 row">
+      <!-- Text input-->
+       <div class="col-sm-12 form-group">
+          <div class="col-md-4">
+              <label class="control-label" for="textinput">17 Dirección residencia de los padres: {{data.direccionPadres}}</label>
+          </div>
+    </div>
+    <div class="col-sm-6">
+      <!-- Text input-->
+      <div class="col-sm-12 form-group">
+          <div class="col-md-4">
+              <label class="control-label" for="textinput">17.1 Ciudad o municipio de los padres: {{data.ciudadPadres}}</label>
+          </div>
+        <div class="col-md-2">
+            <label class="control-label" id="label_vereda_padres" for="textinput">barrio o vereda: {{data.barrioPadres}}</label>
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-12">
+    <div class="col-sm-6 row">
+      <!-- Text input-->
+      <div class="col-sm-12 form-group">
+          <div class="col-sm-4">
+              <label class="control-label" for="textinput">Ubicacion de residencia de los padres: {{data.ubicacionPadres}}</label><br>
+          </div>
+    </div>
+    <div class="col-sm-6">
+      <!-- Text input-->
+      <div class="col-sm-12 form-group">
+          <div class="col-md-4">
+              <label class="control-label" for="textinput">18 Servicios públicos: {{data.serviciosPublicos}}</label>
+          </div>
+      </div>
+    </div>
+</div>
+
+<div class="col-sm-12">
+    <div class="col-sm-6 row">
+      <!-- Text input-->
+      <div class="col-sm-12 form-group">
+          <div class="col-md-4">
+              <label class="control-label" for="textinput">19 ¿De quién depende económicamente?: {{data.dependenciaEconomica}}</label>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <!-- Text input-->
+       <div class="col-sm-12 form-group">
+          <div class="col-md-5">
+              <label class="control-label" for="textinput">20 Ingresos mensuales del nucleo familiar $: {{data.ingresosFamilia}}</label><br>
+          </div>
+      </div>
+    </div>
+</div>
+
+<div class="col-sm-12">
+  <h3 style="COLOR: #000000; BACKGROUND-COLOR: #6f90b8" ALIGN=center>INFORMACIÓN ACADEMICA</h3>
+<div class="col-sm-12">
+
+    <div class="col-sm-6 row">
+      <!-- Text input-->
+       <div class="col-sm-12 form-group">
+          <div class="col-md-4">
+              <label class="control-label" for="textinput">21 Nombre del colegio del que se graduó: {{data.colegio}}</label>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <!-- Text input-->
+       <div class="col-sm-12 form-group">
+          <div class="col-md-4">
+              <label class="control-label" for="textinput">22 ¿el colegio del que se graduó es?: {{data.oficialPrivado}}</label>
+          </div>
+      </div>
+    </div>
+</div>
+
+<div class="col-sm-12">
+
+    <div class="col-sm-6 row">
+      <!-- Text input-->
+       <div class="col-sm-12 form-group">
+          <div class="col-md-4">
+              <label class="control-label" for="textinput">23 Año en que se graduó: {{data.anoTerminacion}}</label>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <!-- Text input-->
+       <div class="col-sm-12 form-group">
+          <div class="col-md-4">
+              <label class="control-label" for="textinput">23.1 Acta de grado n°: {{data.actaGrado}}</label>
+          </div>
+      </div>
+    </div>
+</div>
+
+<div class="col-sm-12">
+   <h3 style="COLOR: #000000; BACKGROUND-COLOR: #6f90b8" ALIGN=center>INFORMACIÓN DE LA INSTITUCION DE EDUCACIÓN SUPERIOR (IES)</h3>
+    <div class="col-sm-6 row">
+      <!-- Text input-->
+      <div class="col-sm-12 form-group">
+          <div class="col-md-4">
+              <label class="control-label" for="textinput">24 Instución de Educación superior(IES): {{data.universidad}}</label><br>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+    <!-- Text input-->
+     <div class="col-sm-12 form-group">
+        <div class="col-md-4">
+            <label class="control-label" for="textinput">25 Sede(IES): {{data.sede}}</label>
+        </div>
+    </div>
+    </div>
+</div>
+
+<div class="col-sm-12">
+
+    <div class="col-sm-6 row">
+      <!-- Text input-->
+      <div class="col-sm-12 form-group">
+          <div class="col-md-5">
+              <label class="control-label" for="textinput">26 ¿La (IES) cuenta con acreditación de alta calidad?: {{data.acreditacionUniversidad}}	</label><br>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <!-- Text input-->
+       <div class="col-sm-12 form-group">
+          <div class="col-md-4">
+              <label class="control-label" for="textinput">27 Carrera que cursa: {{data.carrera}}</label>
+          </div>
+      </div>
+    </div>
+</div>
+
+<div class="col-sm-12">
+
+    <div class="col-sm-6 row">
+
+      <!-- Text input-->
+      <div class="col-sm-12 form-group">
+          <div class="col-md-5">
+              <label class="control-label" for="textinput">27.1 ¿La carrera que estudia es?: {{data.tecnicaTecnologica}}</label><br>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <!-- Text input-->
+      <div class="col-sm-12 form-group">
+          <div class="col-md-5">
+              <label class="control-label" for="textinput">28 ¿La carrera cuenta con acreditación de alta calidad?: {{data.acreditacionCarrera}}</label><br>
+          </div>
+      </div>
+    </div>
+</div>
+
+<div class="col-sm-12">
+
+    <div class="col-sm-6 row">
+      <!-- Text input-->
+      <div class="col-sm-12 form-group">
+          <div class="col-md-4">
+              <label class="control-label" for="textinput">29 ¿Estudia por?: {{data.cicloEducacion}}</label><br>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <!-- Text input-->
+      <div class="col-sm-12 form-group">
+          <div class="col-md-4">
+              <label class="control-label" for="textinput">29.1 ¿Que año semestre o trimestre cursa?: {{data.semestreEnCurso}}</label><br>
+          </div>
+      </div>
+    </div>
+</div>
+
+<div class="col-sm-12">
+
+    <div class="col-sm-6 row">
+      <!-- Text input-->
+      <div class="col-sm-12 form-group">
+          <div class="col-md-4">
+              <label class="control-label" for="textinput">30 Modalidad de estudio: {{data.modalidad}}</label><br>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <!-- Text input-->
+      <div class="col-sm-12 form-group">
+          <div class="col-md-5">
+              <label class="control-label" for="textinput">31 ¿Su proceso formativo es por ciclos propedéuticos?: {{data.propedeutico}}</label><br>
+          </div>
+      </div>
+    </div>
+</div>
+
+<div class="col-sm-12">
+
+    <div class="col-sm-6 row">
+      <!-- Text input-->
+       <div class="col-sm-12 form-group">
+          <div class="col-md-6">
+              <label class="control-label" for="textinput">32 Valor base de la matrícula del semestre actual(sin carnet, ni seguro): {{data.valorMatricula}} </label><br>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <!-- Text input-->
+      <div class="col-sm-12 form-group">
+          <div class="col-md-4">
+              <label class="control-label" for="textinput">33 ¿es beneficiaro de programas como?: {{data.beneficiarioprogramas}}</label><br>
+          </div>
+      </div>
+    </div>
+</div>
+
+<div class="col-sm-12">
+
+  <div class="col-sm-6 row">
+   <!-- Text input-->
+    <div class="col-sm-12 form-group">
+        <div class="col-md-4">
+            <label class="control-label" for="textinput">34 ¿Ha sido beneficiario de este programa?: {{data.incentivoEducativo}}</label><br>
+        </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="col-sm-12 form-group">
+        <div class="col-md-5">
+            <label class="control-label" for="textinput">35 ¿Practica actividades Extra-académicas certificadas?: {{data.extraAcademicas}}</label><br>
+        </div>
+  </div>
+</div>
+  <div class="col-sm-12">
+    <!-- Text input-->
+    <div class="col-sm-12 form-group">
+        <div class="col-md-6">
+            <label class="control-label" for="textinput">36 ¿Le pagan por hacerlas: {{data.extraAcademicaPaga}}</label><br>
+        </div>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <!-- Text input-->
+    <div class="col-sm-12 form-group">
+        <div class="col-md-6">
+          <p>&nbsp; &nbsp; </p>
+            <label class="control-label" for="textinput">________________________________</label><br>
+            <label class="control-label" for="textinput">Firma</label><br>
+        </div>
+    </div>
+  </div>

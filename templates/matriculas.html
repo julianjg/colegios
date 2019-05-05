@@ -1,0 +1,312 @@
+
+{% extends 'plantilla.html' %}
+{% block title%} EDUCACION {%endblock %}
+
+{%  block content %}
+
+<div class="panel panel-headline">
+          <div class="col-sm-12">
+
+              <div class="panel-heading">
+                <h2 class="panel-title"><b>Formulario Matriculas</b></h2>
+                <p class="panel-subtitle"><b>Secretaria de educacion de Anapoima aqui podras hacer la matricula de los alumnos . </b></p>
+              </div>
+          </div>
+
+          <div class="col-sm-12">
+            <legend></legend>
+          </div>
+          <form class="form-horizontal" method="post" action="">
+           {% csrf_token %}
+
+          <div class="col-sm-12">
+            <div class="col-sm-4  panel-heading">
+                 <div class="col-md-4">
+                     <label class="control-label" for="textinput">Procedencia</label>
+                 </div>
+               <div class="col-md-8">
+                 <select id="procedencia" name="procedencia" type="text" placeholder="placeholder" class="form-control input-md" required>
+                     <option value="0">Seleccione</option>
+                         {% for row in veredas %}
+                             <option value="{{ row.id }}">{{ row.vereda }}</option>
+                         {% endfor %}
+                 </select>
+               </div>
+            </div>
+            <div class="col-sm-4  panel-heading">
+                 <div class="col-md-4">
+                     <label class="control-label" for="textinput">Institucion Educativa</label>
+                 </div>
+               <div class="col-md-8">
+                 <select id="institucion" name="institucion" onchange="selec_institucion(institucion)" type="text" placeholder="placeholder" class="form-control input-md" required>
+                     <option value="0">Seleccione</option>
+                         {% for row in instituciones %}
+                             <option value="{{ row.id }}">{{ row.nombre }}</option>
+                         {% endfor %}
+                 </select>
+               </div>
+            </div>
+
+            <div class="col-sm-4 panel-heading">
+               <div class="col-md-4">
+                   <label class="control-label" for="textinput">Sede</label>
+               </div>
+             <div class="col-md-8">
+               <select id="sede" name="sede" type="text" placeholder="placeholder" class="form-control input-md" required>
+                   <option value="0">Seleccione</option>
+                       {% for row in sedes %}
+                           <option value="{{ row.id }}">{{ row.sede }}</option>
+                       {% endfor %}
+               </select>
+             </div>
+           </div>
+          </div>
+
+          <div class="col-sm-12">
+            <legend></legend>
+          </div>
+
+            <div class="panel-body">
+              <div class="row">
+
+                <div class="col-sm-12">
+                    <div class="col-sm-6 row">
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Nombres</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input id="textinput" name="nombre"  maxlength="30" onblur="this.value=this.value.toUpperCase()" placeholder="nombre completo" value="{{ alumno.nombres }}" type="text" placeholder="nombre completo" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Apellidos</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input id="textinput" name="apellido" maxlength="30" onblur="this.value=this.value.toUpperCase()" placeholder="apellidos completos" value="{{ alumno.apellidos }}" type="text" placeholder="apellidos completos" class="form-control input-md" required>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-5">
+                                <label class="control-label" for-"Tipo_documento">Tipo de documento</label>
+                            </div>
+                          <div class="col-md-7">
+                              <label class="control-label" for="CC">C.C</label>
+                              <input type="radio" name="3Tipo_documento" id="CC" value="CC" onclick="otroDoc()" required>
+                              <label class="control-label" for="T.I">T.I</label>
+                              <input type="radio" name="3Tipo_documento" value="T.I" id="T.I" onclick="otroDoc()"/>
+                          </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Documento</label>
+                            </div>
+                          <div class="col-md-4">
+                            <input id="Documento" onkeypress="return validaDocumento(event);" name="Documento" value="{{ alumno.direccion }}" type="text" placeholder="numero" class="form-control input-md" required>
+
+                          </div>
+                        </div>
+
+
+
+                         <div class="col-sm-12 form-group">
+                            <div class="col-md-4">
+                                <label class="control-label" for="textinput">Grado</label>
+                            </div>
+                          <div class="col-md-4">
+                            <select id="grado" name="grado" type="text" placeholder="placeholder" class="form-control input-md" required>
+                                <option value="0">Seleccione</option>
+                                    {% for row in gradoss %}
+                                        <option value="{{ row.id }}">{{ row.grado }}</option>
+                                    {% endfor %}
+                            </select>
+                          </div>
+                        </div>
+
+                        <div class="col-sm-12 form-group">
+                           <div class="col-md-4">
+                               <label class="control-label" for="textinput">Grupo</label>
+                           </div>
+                         <div class="col-md-4">
+                           <select id="grado" name="grupo" type="text" placeholder="placeholder" class="form-control input-md" required>
+                               <option value="0">Seleccione</option>
+                                   {% for row in grupo %}
+                                       <option value="{{ row.id }}">{{ row.grupo }}</option>
+                                   {% endfor %}
+                           </select>
+                         </div>
+                       </div>
+
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-md-4">
+                                <label class="control-label" for="textinput">Genero</label>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="control-label" for="Hombre">M</label>
+                                <input type="radio" name="7Genero" value="Masculino" id="Hombre" required/>
+                                <label class="control-label" for="Mujer">F</label>
+                                <input type="radio" name="7Genero" value="Femenino" id="Mujer"/>
+                            </div>
+
+                        </div>
+
+                        <div class="col-sm-12 form-group">
+                            <div class="col-md-4">
+                                <label class="control-label" for="textinput">Puntaje sisben</label>
+                            </div>
+                          <div class="col-md-4">
+                            <INPUT id="sisben" onkeypress="return validaSisben(event)" type="text" name="15SISBEN" class="form-control input-md" placeholder="00.00" required>
+                          </div>
+                        </div>
+
+
+                        <div class="col-sm-12 form-group">
+                            <div class="col-md-4">
+                                <label class="control-label" for="textinput">Estrato</label>
+                            </div>
+                          <div class="col-md-3">
+                            <input type="text" id="estrato" onkeypress="return validaEstrato(event);" name="14Estrato"  value="" class="form-control input-md" required>
+                          </div>
+                        </div>
+
+                        <div class="col-sm-12 form-group">
+                            <div class="col-md-5">
+                                <label class="control-label" for="textinput">Subsidio de</label>
+                                <label class="control-label" for="textinput">transporte escolar</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="control-label" for="trasporteSi">Si</label>
+                                <input type="radio" name="trasporte" value="Si" id="trasporteSi" required/>
+                                <label class="control-label" for="trasporteNo">No</label>
+                                <input type="radio" name="trasporte" value="No"id="trasporteNo"/>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6">
+
+                         <div class="col-sm-12 form-group">
+                              <div class="col-sm-4">
+                                  <label class="control-label" for-"Tipo_documento">Jornada</label>
+                              </div>
+                            <div class="col-md-6">
+                                <label class="control-label" for="Mañana">Mañana</label>
+                                <input type="radio" name="jornada" id="Mañana" value="Mañana" required>
+                                <label class="control-label" for="Tarde">Tarde</label>
+                                <input type="radio" name="jornada" value="Tarde" id="Tarde"/>
+                            </div>
+                         </div>
+
+                         <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Direccion</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input id="Dirección_estudiante" maxlength="30" name="12DireEstudiante" onblur="this.value=this.value.toUpperCase()" value="{{ alumno.direccion }}" type="text" placeholder="lugar de residencia" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-md-4">
+                                <label class="control-label" for="textinput">familias en</label>
+                                <label class="control-label" for="textinput">Accion</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="control-label" for="familiasSi">Si</label>
+                                <input type="radio" name="familias" value="Si" id="familiasSi" required/>
+                                <label class="control-label" for="familiasNo">No</label>
+                                <input type="radio" name="familias" value="No"id="familiasNo"/>
+                            </div>
+                        </div>
+
+                         <div class="col-sm-12 form-group">
+                            <div class="col-md-5">
+                                <label class="control-label" for="textinput">Programa Escolar</label>
+                                <label class="control-label" for="textinput">de Alimentacion</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="control-label" for="alimentacionSi">Si</label>
+                                <input type="radio" name="alimentacion" value="Si" id="alimentacionSi" required/>
+                                <label class="control-label" for="alimentacionNo">No</label>
+                                <input type="radio" name="alimentacion" value="No"id="alimentacionNo"/>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-md-4">
+                                <label class="control-label" for="textinput">Desplazado</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="control-label" for="desplazadoSi">Si</label>
+                                <input type="radio" name="desplazado" value="Si" id="desplazadoSi" required/>
+                                <label class="control-label" for="desplazadoNo">No</label>
+                                <input type="radio" name="desplazado" value="No"id="desplazadoNo"/>
+                            </div>
+                        </div>
+
+                         <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Contacto</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input id="Celular" onkeypress="return validaCelular(event);" name="6Celular" type="text" placeholder="Numero celular" class="form-control" required>
+                            </div>
+                        </div>
+
+                         <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Nacimiento</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input class="form-control" type="date" id="dia" name="dia" step="1" min="1985-08-24" max="2021-12-31" value="1990-08-24">
+                            </div>
+                        </div>
+
+                         <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Email</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input id="email" name="email" maxlength="30" value="{{ alumno.email }}" type="email" placeholder="digite Email" class="form-control input-md" required>
+                            </div>
+                        </div>
+
+                         <!-- Text input-->
+                        <div class="col-sm-12 form-group">
+                            <div class="col-sm-4">
+                                <label class="control-label" for="textinput">Credo</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input id="textinput" name="credo" maxlength="30" value="{{ alumno.credo }}" type="text" placeholder="digite su credo" class="form-control input-md" required>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-sm-12 form-group">
+                            <div class="col-sm-5">
+
+                            </div>
+                            <div class="col-sm-4 centered" >
+                                <button type="submit" class="btn btn-primary btn-lg">registrarse </button>
+                            </div>
+                    </div>
+                </div>
+            </form>
+    </div>
+</div>
+</div>
+{% endblock %}

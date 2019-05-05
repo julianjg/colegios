@@ -1,0 +1,43 @@
+{% extends 'plantilla.html' %}
+{% block title%} EDUCACION {%endblock %}
+
+{%  block content %}
+<div class="row">
+    <div class="col-lg-12 col-sm-12">
+    <H3>REPORTES</H3>
+    </div>
+</div>
+
+<div class="panel">
+    <div class="panel-body">
+          <div class="table-responsive">
+
+
+          <div class="row">
+
+                <div class="col-md-6">
+                <a href="excelAgendados"><i class="fa fa-file-excel-o"></i>Excel Agendados</a>
+                <hr />
+                </div>
+
+                <div class="col-md-6">
+                 <a href="{% url 'informeVca' %}"><i class="fa fa-file-excel-o"></i>Agenda entrevistas</a>
+                 <hr />
+                </div>
+
+                <div class="col-md-6">
+                 <a href="{% url 'informeAlumnos' %}"><i class="fa fa-file-excel-o"></i>matriculas</a>
+                 <hr />
+                </div>
+
+                <div class="col-md-6">
+                 <a href="{% url 'informeAlumnos' %}"><i class="fa fa-file-excel-o"></i>Docentes</a>
+                 <hr />
+                </div>
+          </div>
+
+          </div>
+    </div>
+</div>
+
+{% endblock %}

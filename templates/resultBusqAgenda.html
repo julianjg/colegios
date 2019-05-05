@@ -1,0 +1,37 @@
+{% extends 'plantilla.html' %}
+{% block title%} EDUCACION {%endblock %}
+{%  block content %}
+  <div class="col-sm-12">
+    <form class="" action="{% url 'editaBusqAgenda' %}" method="POST">
+        {% csrf_token %}
+
+
+    <div class="panel">
+              <input type="hidden" name="INPUT" value="NUEVO">
+            <div class="panel-body">
+            <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped" id="activity">
+                <thead>
+                    <tr>
+                        <th>Lista de resultados</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+
+                    </tr>
+                </tbody>
+
+            </table>
+               <td> {{agendadoDatos.nombre.id}} | {{agendadoDatos.nombre.nombre}} | {{agendadoDatos.nombre.apellido}} | {{agendadoDatos.nombre.documento}} | {{agendadoDatos.fecha}} | {{agendadoDatos.hora.hora}}</td>
+              <input type="hidden" name="agendado" value="{{ agendadoDatos.id }}">
+              <input type="hidden" name="documento" value="{{ agendadoDatos.nombre.id }}">
+               <button class="btn btn-primary" type="submit">Editar</button>
+            </div>
+            </div>
+       </form>
+      </div>
+
+</div>
+{% endblock %}

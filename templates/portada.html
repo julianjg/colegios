@@ -1,0 +1,80 @@
+{% extends 'plantilla.html' %}
+{% load staticfiles %}
+{% block title%} EDUCACION {%endblock %}
+
+{%  block content %}
+
+
+      <div class="panel panel-headline">
+            <div class="panel-heading">
+              <h2 class="panel-title" style="font-size: 30px;text-align: center;color: #328154;"><b>Secretaria de Educación de Anapoima</b></h2>
+              <p class="panel-subtitle" style="text-align: center;font-size: 25px;color: #636d79;"><b>Panel Administrativo</b></p>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+
+                <div class="col-md-9">
+
+                  <div class="col-md-12">
+                    <!-- PANEL DEFAULT -->
+                    <div class="panel">
+                      <div class="panel-heading" style="background-color: #328154;padding: 9px 20px;color: #f5f5f5;">
+                        <h3 class="panel-title" style="margin-bottom: 0px;">Bienvenido!</h3>
+                        <div class="right">
+                          <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+                          <button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
+                        </div>
+                      </div>
+                      <div class="panel-body">
+                        <p></p>
+                        <p>Aqui encontrarás información acerca de los avances que se han logrado durante esta administracion. También las mejoras e inversiones que se han hecho en cuanto a educación. Además encontraras información de las instituciones educativas del municipio.</p>
+                      </div>
+                    </div>
+                    <!-- END PANEL DEFAULT -->
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="metric">
+                    <a href="matriculas.html" style="color: #636d79">
+                      <span class="icon"><i class="fa fa-download"></i></span>
+                      <p>
+                        <span class="number">Matriculas</span>
+                        <span class="title">.</span>
+                      </p>
+                    </a>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="metric">
+                    <a href="docentes.html" style="color: #636d79">
+                      <span class="icon"><i class="fa fa-shopping-bag"></i></span>
+                      <p>
+                        <span class="number">Registro</span>
+                        <span class="title">Docentes</span>
+                      </p>
+                    </a>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="metric">
+                    <a href="estimulos_form.html" style="color: #636d79">
+                      <span class="icon"><i class="fa fa-eye"></i></span>
+                      <p>
+                        <span class="number">Estimulos</span>
+                        <span class="title">Formulario</span>
+                      </p>
+                    </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="centered"><img src="{% static 'img/anapoima.jpg' %}" class="img-responsive" alt=""/></div>
+                </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+{% endblock %}

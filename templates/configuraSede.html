@@ -1,0 +1,64 @@
+{% extends 'plantilla.html' %}
+{% block title%} EDUCACION {%endblock %}
+
+
+
+{%  block content %}
+<form method="POST" action="configuraSede">
+{% csrf_token %}
+<div class="col-sm-12 form-group">
+    <div class="panel-heading">
+      <h3><b>Sede</b></h3>
+    </div>
+    <div class="col-sm-3">
+        <label class="control-label" for="textinput">Ingrese Sede</label>
+    </div>
+    <div class="col-sm-6">
+        <input id="sede" name="sede" value="{{ sede }}" type="text" placeholder="Nombre Sede" class="form-control">
+    </div>
+</div>
+
+<div class="col-sm-12 form-group">
+   <div class="col-md-3">
+       <label class="control-label" for="textinput">Institucion Educativa</label>
+   </div>
+ <div class="col-md-6">
+   <select id="instituciones" name="institucion" type="text" placeholder="placeholder" class="form-control input-md" required>
+       <option value="0">Seleccione</option>
+           {% for row in instituciones %}
+               <option value="{{ row.id }}">{{ row.nombre }}</option>
+           {% endfor %}
+   </select>
+ </div>
+</div>
+
+
+<button type="submit" value ="10" class="btn btn-primary">guardar </button>
+<a class="btn btn-default" href="{% url 'configuraMatricula' %}">Cancelar</a>
+</form>
+
+<div class="panel">
+    <div class="panel-body">
+        <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Sede</th>
+                    <th>Accion</th>
+                </tr>
+            </thead>
+            <tbody>   {% for row in sedes %}
+                <tr>
+                    <td>{{ row.id }} | {{ row.sede }}</td>
+                    <td><a class="btn btn-primary" href="{% url 'editarSede' pk=row.pk %}">Editar</a>
+                      {% if user.is_superuser == True %}
+                       <a class="btn btn-danger" href="{% url 'eliminarSede'  pk=row.pk %}">Borrar</a></td>
+                      {% endif %}
+                </tr>
+            </tbody>    {% endfor %}
+        </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

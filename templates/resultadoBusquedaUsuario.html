@@ -1,0 +1,121 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simdeesea Web</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- styles -->
+    <link href="{% static 'css/one-page-wonder.css' %}" rel="stylesheet">
+    <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
+  </head>
+  <body style="padding-top: 0px;">
+
+          <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#"><b>Simdeesea Web</b></a>
+      </div>
+    </nav>
+
+    <div class="page-content">
+    	<div class="row">
+
+		  <div class="col-md-12">
+		  	<div class="row">
+		  		<div class="content-box-large">
+		  				<div class="panel-heading">
+
+	    <!-- Main component for a primary marketing message or call to action -->
+      <div class="panel panel-headline">
+          <div class="panel-heading">
+            <h2 class="panel-title"><b>Resultados</b></h2>
+            <p class="panel-subtitle"><b>Resultado de la busqueda</b></p>
+          </div>
+          <div class="col-lg-4">
+
+          </div>
+          <div class="col-lg-8">
+              <h4>Actualice sus datos y programe el día de su entrevista</h4>
+
+          </div>
+          <div class="col-lg-12">
+            <div class="col-lg-1">
+
+            </div>
+            <div class="col-lg-10">
+              <h6>Solo los campos de dirección, tipo de documento, número de teléfono, edad, dirección de sus padres, semestre el cual cursa y valor de matrícula estan disponibles para actualizar.</h6>
+            </div>
+          </div>
+
+          <div class="panel-body">
+            <div class="row">
+
+                  <div class="col-sm-12">
+
+                    <form class="" action="index.html" method="post">
+
+                    <div class="panel">
+                            <div class="panel-body">
+                            <div class="table-responsive">
+
+                            <table class="table table-bordered table-hover table-striped" id="activity">
+                                <thead>
+                                    <tr>
+                                        <th>Lista de resultados</th>
+                                        <th>Acciones</th>
+
+                                    </tr>
+
+                                </thead>
+                                {% if aspiranteEstimulo %}
+                                <tbody>
+
+                                    <tr>
+                                        <td> {{aspiranteEstimulo.id}} | {{aspiranteEstimulo.nombre}} | {{aspiranteEstimulo.apellido}} | {{aspiranteEstimulo.documento}} | {{aspiranteEstimulo.email}}</td>
+                                        <td><a class="btn btn-primary" href="{% url 'editarBusquedaParcialmente' aspiranteEstimulo.id %}">Actualizar Datos</a></td>
+
+                                    </tr>
+
+                                </tbody>
+                                 {% endif %}
+                            </table>
+                            </div>
+                            </div>
+                      </div>
+                      </form>
+                </div>
+        </div>
+      </div>
+      </div>
+
+	</div>
+	</div>
+</div>
+
+		  	</div>
+		  </div>
+		</div>
+    </div>
+
+<div class="col-sm-12 col-md-12 col-lg-12"><br><br></div>
+
+    <footer >
+         <div class="container">
+
+            <div class="copy text-center">
+               <p class="m-0 text-center text-white"> &copy;2017 Secretaria de Educación Anapoima. Todos los derechos reservados.</p>
+            </div>
+
+         </div>
+      </footer>
+
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/js/validacion_estimulos.js" type="text/javascript"></script>
+    <script src="/static/js/editarFormulario.js" type="text/javascript"></script>
+    <script src="/static/js/custom.js"></script>
+  </body>
+</html>

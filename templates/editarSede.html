@@ -1,0 +1,44 @@
+{% extends 'plantilla.html' %}
+{% block title%} EDUCACION {%endblock %}
+
+{%  block content %}
+<div class="panel panel-headline">
+    <div class="panel-heading">
+      <h2 class="panel-title"><b>Sede</b></h2>
+    </div>
+
+    <div class="panel-body">
+      <div class="row">
+
+		<form method="POST" action="editarSede">
+		{% csrf_token %}
+		<div class="col-sm-12 form-group">
+		    <div class="col-sm-3">
+		        <label class="control-label" for="textinput">Editar Sede</label>
+		    </div>
+		    <div class="col-sm-6">
+		        <input id="textinput" name="sede" value="{{ sede.sede }}" type="text" class="form-control">
+		    </div>
+		</div>
+    <div class="col-sm-12 form-group">
+       <div class="col-md-3">
+           <label class="control-label" for="textinput">Editar Institucion</label>
+       </div>
+     <div class="col-md-6">
+       <select id="instituciones" name="institucion" type="text" placeholder="placeholder" class="form-control input-md" required>
+           <option value="{{ sede.institucion.id }}">{{ sede.institucion.nombre }}</option>
+               {% for row in instituciones %}
+                   <option value="{{ row.id }}">{{ row.nombre }}</option>
+               {% endfor %}
+       </select>
+     </div>
+    </div>
+
+		<button type="submit" value ="10" class="btn btn-primary">Editar </button>
+		<a class="btn btn-default" href="{% url 'configuraSede' %}">Cancelar</a>
+		</form>
+	</div>
+	</div>
+</div>
+
+{% endblock %}

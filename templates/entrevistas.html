@@ -1,0 +1,93 @@
+{% extends 'plantilla.html' %}
+{% block title%} EDUCACION {%endblock %}
+
+
+
+{%  block content %}
+
+<div class="panel panel-headline">
+  <div class="col-sm-12 panel-heading">
+    <div class="col-sm-10">
+      <h2 class="panel-title"><b>Entrevistas</b></h2>
+      <p class="panel-subtitle"><b>Lista de entrevistas</b></p>
+    </div>
+  </div>
+
+  <div class="panel-body">
+      <div class="table-responsive">
+        <div class="row">
+        <form class="" action="{% url 'listaEntrevista' %}" method="post">
+        {% csrf_token %}
+        <div class="col-sm-1">
+
+        </div>
+        <div class="col-sm-3">
+            <label class="control-label" for="textinput">Dia de la entrevista</label><br>
+            <input class="form-control" type="date" id="dia" name="fecha" step="1" min="2018-09-20" max="2018-12-23" value="{{ fecha }}">
+        </div>
+
+        <div class="col-sm-3">
+            <label class="control-label" for="textinput">Hora de la entrevista</label><br>
+            <select id="id_hora" name="hora" type="text" class="form-control input-md">
+                <option value="NR">hora</option>
+                    {% for row in horas %}
+                        <option value="{{ row.id }}">{{ row.hora }}</option>
+                    {% endfor %}
+            </select>
+        </div>
+        <div class="col-sm-3">
+            <label class="control-label" for="textinput">Verificar fecha entrevista</label><br>
+            <input type="text" id="busca" name="busca" class="form-control" placeholder="Digite documento">
+            <p>&nbsp; &nbsp; </p
+        </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-12 col-md-12">
+  <div class="col-sm-5">
+
+  </div>
+  <div class="">
+      <button class="btn btn-primary" type="submit">Buscar</button>
+  </div>
+</div>
+</form>
+
+<div class="col-sm-12 col-md-12"><p><br></p></div>
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-striped">
+          <thead>
+              <tr>
+                  <th>Agendados</th>
+              </tr>
+
+          </thead>
+
+          <tbody>   {% for c in estudiante %}
+
+              <tr>
+                  <td>{{ c }}</td>
+              </tr>
+          </tbody>    {% endfor %}
+      </table>
+     </div>
+
+{% if estudianteHora %}
+      <table class="table table-bordered table-hover table-striped">
+
+          <tbody>   {% for c in estudianteHora %}
+
+              <tr>
+                  <td>{{ c }}</td>
+              </tr>
+          </tbody>    {% endfor %}
+      </table>
+{% endif %}
+
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'plantilla.html' %}
+{% block title%} EDUCACION {%endblock %}
+
+
+
+{%  block content %}
+
+<form method="POST" action="centrosSena">
+		{% csrf_token %}
+		<div class="col-sm-12 form-group">
+      <div class="panel-heading">
+        <h3><b>Centro Sena</b></h3>
+      </div>
+
+		    <div class="col-sm-4">
+		        <label class="control-label" for="textinput">Ingrese Centro sena</label>
+		    </div>
+		    <div class="col-sm-8">
+		        <input id="textinput" name="centroSena" value="{{ centroSena }}" type="text" placeholder="nombre Centro Sena" class="form-control">
+		    </div>
+		</div>
+
+		<button type="submit" value ="10" class="btn btn-primary">guardar </button>
+		<a class="btn btn-default" href="{% url 'configuracion' %}">Cancelar</a>
+</form>
+
+<div class="panel">
+    <div class="panel-body">
+        <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Centros Sena </th>
+                    <th>Accion</th>
+                </tr>
+            </thead>
+            <tbody>   {% for row in centrosSena %}
+                <tr>
+                    <td>{{ row.id }} | {{ row.centroSena }}</td>
+                    <td><a class="btn btn-primary" href="{% url 'editarCentrosSena' pk=row.pk %}">Editar</a>
+										 {% if user.is_superuser == True %}
+											 <a class="btn btn-danger" href="{% url 'eliminarCentrosSena' pk=row.pk %}">Borrar</a></td>
+										 {% endif %}
+								</tr>
+            </tbody>    {% endfor %}
+        </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+@font-face {
+ font-family: 'BreeSerif'; 
+ src: url('../fonts/BreeSerif-Regular.ttf');
+}
+
+body {
+    font-family: "BreeSerif";
+    font-weight: 300;
+    font-size: 16px;
+}
+
+html.fullscreen-bg, html.fullscreen-bg body, html.fullscreen-bg #wrapper {
+    height: 100%;
+}

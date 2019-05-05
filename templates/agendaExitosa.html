@@ -1,0 +1,28 @@
+{% extends 'plantilla.html' %}
+{% block title%} EDUCACION {%endblock %}
+
+{%  block content %}
+
+{% if nombreGuardado %}
+<form class="" action="{% url 'reporte' %}" method="POST">
+    {% csrf_token %}
+  <div class="">
+    <input type="hidden" name="doc" id="documento" value="{{ documen }}">
+    <h4>{{ nombreGuardado }} Se agendó su entrevista  para el día {{ diaGuardado }} a las {{ horaGuardada }}</h4>
+    <label for="">Descarge el pdf de su registro</label>  <button class="btn btn-primary" type="submit">pdf</button>
+  </div>
+</form>
+{% endif %}
+
+{% if nombreAgendado %}
+<form class="" action="{% url 'reporte' %}" method="POST">
+    {% csrf_token %}
+  <div class="">
+    <input type="hidden" name="doc" id="documento" value="{{ documen }}">
+    <h4>{{ nombreAgendado }} Ya se encuentra registrado(a) y agendado(a)</h4>
+    <label for="">Descarge el pdf de su registro</label>  <button class="btn btn-primary" type="submit">pdf</button>
+  </div>
+</form>
+{% endif %}
+
+{% endblock %}

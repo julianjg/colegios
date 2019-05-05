@@ -1,0 +1,15 @@
+{% extends 'plantilla.html' %}
+{% block title%} EDUCACION {%endblock %}
+
+{%  block content %}
+
+<form class="" action="{% url 'some_view' %}" method="POST">
+    {% csrf_token %}
+  <div class="">
+    {{cita}}
+    <input type="text" name="cita" value="{{ cita }}">
+    <button type="submit" name="button">excel</button>
+  </div>
+</form>
+
+{% endblock %}
