@@ -77,5 +77,6 @@ urlpatterns = [
     url(r'^esti_form/$',esti_form, name='esti_form'),
     #url(r'^configuracion$',configuracion, name='configuracion'),
     url(r'^pdf',salidaPdf, name='pdf'),
+    url(r'^passwordResetForm',passwordResetForm, name='passwordResetForm'),
     url(r'^admin/', admin.site.urls),
 ]

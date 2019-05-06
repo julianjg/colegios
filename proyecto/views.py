@@ -93,6 +93,9 @@ def inicio(request):
 def configuraMatricula(request):
     return render_to_response('configuraMatriculas.html',context_instance = RequestContext(request))
 
+def passwordResetForm(request):
+    return render_to_response('passwordResetForm.html',context_instance = RequestContext(request))
+
 @login_required(login_url = "/login")
 def configuraInstitucion(request):
     instituciones = Inst_educativas2.objects.all()
